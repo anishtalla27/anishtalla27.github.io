@@ -23,7 +23,8 @@
   const linked = (e.evidence || []).filter((x) => x.url);
   const preferred = linked.filter((x) => x.primary);
   const main = preferred.length ? preferred : linked.filter((x) => !seen.has(x.kind) && seen.add(x.kind)).slice(0, 2);
-  const actions = main.length ? `<div class="btns">${main.map((x, i) => `<a class="btn ${i ? "ghost" : "primary"}" href="${x.url}" ${extAttrs(x.url)}>${esc(x.label)} ↗</a>`).join("")}</div>` : "";
+  const watch = e.videos && e.videos.length ? `<a class="btn light" href="#video"><span aria-hidden="true">▶</span> Watch video</a>` : "";
+  const actions = main.length || watch ? `<div class="btns">${main.map((x, i) => `<a class="btn ${i ? "ghost" : "primary"}" href="${x.url}" ${extAttrs(x.url)}>${esc(x.label)} ↗</a>`).join("")}${watch}</div>` : "";
 
   const others = ENTRIES.filter((x) => x.category === e.category && x.id !== e.id && entryDestination(x)).slice(0, 4);
 
@@ -39,7 +40,7 @@
       <div class="main">
         ${block("My contribution", para(e.contribution))}
         ${block("Results and status", list(e.outcomes))}
-        ${e.videos && e.videos.length ? `<div class="vids${e.videos.length === 1 ? " one" : ""} reveal">${e.videos.map((v) => `<figure class="vid ${v.shape || ""}">
+        ${e.videos && e.videos.length ? `<div class="vids${e.videos.length === 1 ? " one" : ""} reveal" id="video">${e.videos.map((v) => `<figure class="vid ${v.shape || ""}">
           <video src="${v.src}" poster="${v.poster || ""}" controls playsinline preload="none"></video>
           <figcaption><b>${esc(v.title)}</b>${v.text.split("\n\n").map((t) => `<p>${esc(t)}</p>`).join("")}</figcaption></figure>`).join("")}</div>` : ""}
         ${e.shots && e.shots.length ? `<div class="shots reveal">${e.shots.map((s) => `<img src="${s}" alt="${esc(e.title)} screenshot" loading="lazy">`).join("")}</div>` : ""}
@@ -60,4 +61,10 @@
 
   if (e.demo) mountDemo(e.demo, document.getElementById("demo-slot"));
   initReveal();
+  // The page is rendered by script, so the browser cannot jump to #video on its own.
+  if (location.hash === "#video") {
+    const jump = () => document.getElementById("video")?.scrollIntoView({ block: "start" });
+    requestAnimationFrame(jump);
+    addEventListener("load", jump, { once: true });
+  }
 })();
