@@ -4,7 +4,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 // Text colors group entries by state: done, active, early, private.
 function statusClass(status) {
-  return { shipped: "c-done", completed: "c-done", ongoing: "c-active", "in progress": "c-active", submitted: "c-active",
+  return { shipped: "c-done", completed: "c-done", ongoing: "c-active", "in progress": "c-active", submitted: "c-active", accepted: "c-done",
     prototype: "c-early", concept: "c-early", "private code": "c-private" }[(status || "").toLowerCase()] || "";
 }
 const KIND = {

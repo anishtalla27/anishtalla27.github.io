@@ -1,6 +1,6 @@
 // All site content lives here. Edit this file to add or change entries.
 // category: experience | project | research | datasci | award
-// status:   Shipped | In progress | Prototype | Concept | Submitted | Private code | Completed | Ongoing
+// status:   Shipped | In progress | Prototype | Concept | Submitted | Accepted | Private code | Completed | Ongoing
 // evidence kind: code | pr | live | doc | paper | note
 // cover: animated card art from js/covers.js. shots: ["assets/shots/x.png"] replaces it with real screenshots.
 const GH = "https://github.com/anishtalla27";
@@ -200,6 +200,22 @@ const ENTRIES = [
       "Photo-to-tab scanning was explored and cut. It did not meet my reliability bar, so it did not ship.",
     ],
     outcomes: ["Released on the App Store, version 1.0.0 (September 2026)."],
+    videos: [
+      {
+        src: "assets/video/stringmap-promo.mp4",
+        poster: "assets/video/stringmap-promo.jpg",
+        shape: "wide",
+        title: "Promo video (16:9)",
+        text: "A 26-second ad cut to the beat: lessons, the Songbook, playback, practice tools, and a look at the engine choosing a fingering. The screens are real App Store screenshots, the fretboard is redrawn from the app's own view code, and the soundtrack is Minuet in G played through the app's bundled guitar SoundFont. The fingering numbers on screen come from a Python port of the Swift engine, not from hand-placed values.",
+      },
+      {
+        src: "assets/video/stringmap-promo-vertical.mp4",
+        poster: "assets/video/stringmap-promo-vertical.jpg",
+        shape: "tall",
+        title: "Vertical cut (9:16)",
+        text: "The same ad laid out for TikTok and Reels, with headlines kept clear of the caption area and action buttons.",
+      },
+    ],
     evidence: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
   },
   {
@@ -224,6 +240,15 @@ const ENTRIES = [
       "Explored running a local model in the browser (WebLLM) with a hosted fallback and rule-based behavior when no API is available.",
     ],
     outcomes: ["Platform audience of 40+ young entrepreneurs."],
+    videos: [
+      {
+        src: "assets/video/launchpad.mp4",
+        poster: "assets/video/launchpad.jpg",
+        shape: "wide",
+        title: "Product film (52 seconds)",
+        text: "The first half is the product. It opens on one bracelet priced from $1.00 up to $6.50, with the app's real profit cards flipping from −$0.99 to +$4.51 per item. Then it walks through the five main tools: the setup chat, the cost breakdown, the pricing model, the report card, and the business tracker. The report card grades every plan the same way: profit on each sale counts for 50%, break-even for 25%, cost detail for 15%, and product clarity for 10%.\n\nThe second half shows the backend. Every AI request goes from the browser to a server function that checks the user is signed in, limits them to 20 requests per 10 minutes and 150 per day (enforced in the database), and only then calls the model. If anything fails, the app falls back to built-in answers. The AI can reword feedback but cannot change the numbers: the code on screen throws out any rewrite that drops a dollar figure. The two rewrites in that part are examples written to show the check, not real model output.\n\nThe closing stats come from the repository: 279 automated tests passing, 20 database tables, 18 of them locked so each user only sees their own rows, and 30 database security checks.",
+      },
+    ],
     evidence: [
       { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
       { label: "Source code", url: GH + "/LaunchPad", kind: "code" },
@@ -265,7 +290,7 @@ const ENTRIES = [
     category: "research",
     role: "Sole author",
     dates: "2026",
-    status: "Submitted",
+    status: "Accepted",
     featured: true,
     summary:
       "Designed a controlled benchmark comparing rule-based vision, deep learning, and GPT-4o for robotic grasp prediction. Evaluated generalization to unseen objects, quantified uncertainty, and analyzed failure modes to identify where each approach succeeds and breaks down.",
@@ -292,7 +317,17 @@ const ENTRIES = [
     ],
     outcomes: [
       "Test accuracy: trained network 84.0%, rule-based heuristic 57.7%, GPT-4o 12.4%. Every paired difference is statistically significant.",
+      "Accepted at the IEEE ICDM 2026 Teen Research Track (September 2026).",
       "Submitted to the Next Gen Scholar Research Paper Competition.",
+    ],
+    videos: [
+      {
+        src: "assets/video/grasp-benchmark.mp4",
+        poster: "assets/video/grasp-benchmark.jpg",
+        shape: "wide",
+        title: "The paper in 25 seconds",
+        text: "It opens on a real test image, a toothbrush the models never saw in training, with the human-labeled grasps in green and GPT-4o's five saved answers in orange. None of the five lands on the object. From there it walks through the paper in order: the object-wise split, the rectangle test worked out on screen, and the results with 95% confidence intervals. The last part is the follow-up experiment. GPT-4o no longer had to write coordinates, only pick one of 12 numbered grasps, and on the pen shown it picked the same failing mark on all five calls. Across the test set it was right 18.7% of the time, below the 20.1% a random pick would get. Every rectangle, pick, and number is drawn from the project's saved predictions and the paper's tables, not placed by hand.",
+      },
     ],
     evidence: [
       { label: "Read the paper (PDF)", url: "assets/papers/grasp-benchmark.pdf", kind: "paper" },
@@ -356,6 +391,15 @@ const ENTRIES = [
       "Changing weight format altered decode speed by up to 3.0 times, while prefill changed by at most 17%.",
       "A projected 16-bit PIM device with four times the internal bandwidth gained only 1.2 to 1.4 times over the 4-bit host baseline.",
       "Results come from one laptop, one software stack, and one model family. Model quality and power consumption were not measured."
+    ],
+    "videos": [
+      {
+        "src": "assets/video/near-memory.mp4",
+        "poster": "assets/video/near-memory.jpg",
+        "shape": "wide",
+        "title": "The paper in 58 seconds",
+        "text": "How fast can a laptop run a language model? Mostly as fast as its memory can hand over the weights. To produce each token the model reads all of its weights once, so on a MacBook Air (M4, 16 GB) the speed is roughly memory bandwidth divided by model size.\n\nI measured this across four Qwen2.5 models (0.5B to 7B) in up to seven weight formats: 23 configurations and 79 benchmark runs with llama.cpp. 16-bit decode reaches 83 to 95% of the bandwidth ÷ bytes limit with no fitted parameters. A simple latency model fitted on two model sizes predicted a 7B model it had never seen with a mean error of 3.3%.\n\nThen I asked whether processing-in-memory chips, which compute inside the DRAM, would help. For the 3B model, a 16-bit PIM part with 4× the internal bandwidth comes out 3.5× faster than the laptop running 16-bit weights, but only 1.2× faster than the 4-bit model people already run. The PIM numbers are projections from published specs, not measurements on real PIM hardware."
+      }
     ],
     "evidence": [
       {

@@ -395,3 +395,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .card.compact { grid-template-columns: 1fr; }
   .card.compact .cover { display: none; }
 }
+
+/* ---------- project videos ---------- */
+.vids { display: grid; gap: 18px; grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); align-items: start; }
+.vids.one { grid-template-columns: minmax(0, 1fr); }
+.vid { margin: 0; }
+.vid video { width: 100%; display: block; border-radius: 5px; border: 1px solid var(--line); box-shadow: var(--shadow); background: #000; }
+.vid.wide video { aspect-ratio: 16 / 9; }
+.vid.tall video { aspect-ratio: 9 / 16; max-height: 560px; }
+.vid figcaption { margin-top: 10px; font-size: .9rem; line-height: 1.5; color: var(--muted, inherit); }
+.vid figcaption p { margin: 0 0 8px; }
+.vid figcaption p:last-child { margin-bottom: 0; }
+.vid figcaption b { display: block; margin-bottom: 4px; color: var(--ink, inherit); }
+@media (max-width: 860px) { .vids { grid-template-columns: 1fr; } .vid.tall { max-width: 320px; } }

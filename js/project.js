@@ -39,6 +39,9 @@
       <div class="main">
         ${block("My contribution", para(e.contribution))}
         ${block("Results and status", list(e.outcomes))}
+        ${e.videos && e.videos.length ? `<div class="vids${e.videos.length === 1 ? " one" : ""} reveal">${e.videos.map((v) => `<figure class="vid ${v.shape || ""}">
+          <video src="${v.src}" poster="${v.poster || ""}" controls playsinline preload="none"></video>
+          <figcaption><b>${esc(v.title)}</b>${v.text.split("\n\n").map((t) => `<p>${esc(t)}</p>`).join("")}</figcaption></figure>`).join("")}</div>` : ""}
         ${e.shots && e.shots.length ? `<div class="shots reveal">${e.shots.map((s) => `<img src="${s}" alt="${esc(e.title)} screenshot" loading="lazy">`).join("")}</div>` : ""}
         ${e.demo ? `<div class="reveal" id="demo-slot"></div>` : ""}
         ${e.glance ? `<div class="card block glance reveal"><h2>At a glance</h2><p>${esc(e.glance.text)}</p>
