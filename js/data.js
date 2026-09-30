@@ -68,6 +68,14 @@ const ENTRIES = [
       "Partner platform in use by 60+ corporate partners.",
       "Internal tools used across operations, support, and marketing teams.",
     ],
+    galleryTitle: "Screens and automations",
+    galleryNote: "TMS Hub screens use demo data. Every organization and person shown is fictional.",
+    gallery: [
+      { src: "assets/shots/trackmyshuttle/chooser.jpg", caption: "Signing in to TMS Hub opens a workspace chooser, with one hub per team." },
+      { src: "assets/shots/trackmyshuttle/board.jpg", caption: "The selling pipeline. Each card is an organization, with its owner and time in stage." },
+      { src: "assets/shots/trackmyshuttle/drawer.jpg", caption: "Opening a record shows where it is, the suggested next move, and what Airtable will and will not do when it changes.", wide: true },
+      { src: "assets/shots/trackmyshuttle/fedex-automation.jpg", caption: "The FedEx label automation in Make. An Airtable webhook creates the shipment, saves tracking, and files the label in Google Drive. A failed label is saved for review instead of retried.", wide: true },
+    ],
     evidence: [
       { label: "TMS Hub", url: "https://hub.trackmyshuttle.com/", kind: "live" },
       { label: "Official TrackMyShuttle website", url: "https://trackmyshuttle.com/", kind: "live" },
@@ -96,6 +104,10 @@ const ENTRIES = [
       "Worked within shared PPBDS repositories, reviewing changes and collaborating through GitHub.",
     ],
     outcomes: ["Acknowledged as a contributor in the Preceptor's Primer for Bayesian Data Science.", "Merged contributions to tutorial.helpers: answer-processing tests and editor-extension tooling."],
+    galleryTitle: "Evidence",
+    gallery: [
+      { src: "assets/shots/kane/pr-75.jpg", caption: "Pull request #75 to tutorial.helpers, merged by Dr. Kane in August 2025. It adds test cases for write_answers().", wide: true },
+    ],
     evidence: [
       { label: "Read the textbook", url: "https://ppbds.github.io/primer/", kind: "doc", primary: true },
       { label: "My merged contributions", url: "https://github.com/PPBDS/tutorial.helpers/pulls?q=is%3Apr+is%3Amerged+author%3Aanishtalla27", kind: "pr", primary: true },
@@ -131,6 +143,11 @@ const ENTRIES = [
       "Reviewed course materials and code changes with the teaching team.",
     ],
     outcomes: ["Supported 90+ students across three countries.", "Coordinated 6 to 8 teaching fellows."],
+    galleryTitle: "Photos and screenshots",
+    gallery: [
+      { src: "assets/shots/kane/fellows-2025.jpg", caption: "The summer 2025 course team with Dr. Kane on Zoom. I am on the right in the middle row. The photo is from the textbook's acknowledgments.", wide: true },
+      { src: "assets/shots/kane/course-home.jpg", caption: "The course website. The course runs for eight weeks, mostly in summer, and is free." },
+    ],
     evidence: [
       { label: "Visit the course website", url: "https://bootcamp.davidkane.info/", kind: "live", primary: true },
       { label: "Head Teaching Fellow listing", url: "https://bootcamp.davidkane.info/staff.html", kind: "doc", primary: true },
@@ -217,6 +234,14 @@ const ENTRIES = [
         text: "The same ad, laid out vertically for TikTok and Reels.",
       },
     ],
+    galleryTitle: "Screens from the App Store release",
+    galleryLayout: "phones",
+    gallery: [
+      { src: "assets/shots/stringmap/learn.jpg", caption: "Tutorial mode: twelve short lessons, taken in order." },
+      { src: "assets/shots/stringmap/chord-shape.jpg", caption: "A lesson step. The fretboard shows the chord shape with finger numbers." },
+      { src: "assets/shots/stringmap/songbook-melody.jpg", caption: "A Songbook melody, with the staff, tab, and fretboard following the same note." },
+      { src: "assets/shots/stringmap/songbook-chords.jpg", caption: "The same tune as chords, with a fingering for each shape." },
+    ],
     evidence: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
   },
   {
@@ -249,6 +274,14 @@ const ENTRIES = [
         title: "Product film (52 seconds)",
         text: "A 52-second product film. The first half walks through the app using one bracelet priced from $1.00 to $6.50. The second half shows the backend: signed-in, rate-limited AI requests with offline fallbacks, a check that stops the AI from changing any numbers, and 279 passing tests. The two AI rewrites shown are examples I wrote to demonstrate that check.",
       },
+    ],
+    galleryTitle: "Screens from the app",
+    galleryNote: "Shown with the app's sample bracelet business.",
+    gallery: [
+      { src: "assets/shots/launchpad/setup-chat.jpg", caption: "Setup chat. The app asks about the product one question at a time." },
+      { src: "assets/shots/launchpad/pricing.jpg", caption: "Pricing. Moving the price or sales goal updates profit, margin, and break-even." },
+      { src: "assets/shots/launchpad/report-card.jpg", caption: "The report card. The same costs, price, and margin always get the same score." },
+      { src: "assets/shots/launchpad/tracker.jpg", caption: "The business tracker: sales, expenses, inventory, and a monthly goal." },
     ],
     evidence: [
       { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
@@ -319,6 +352,12 @@ const ENTRIES = [
         title: "The paper in 50 seconds",
         text: "A 50-second walkthrough of the paper: how each system works and where it fails, the results with confidence intervals, and the follow-up where GPT-4o only had to pick from marked grasps and still did no better than chance. Every rectangle, reply, and number comes from the saved predictions.",
       },
+    ],
+    galleryTitle: "Figures from the paper",
+    gallery: [
+      { src: "assets/shots/grasp/accuracy.png", caption: "Test accuracy with 95% object-clustered confidence intervals. The line inside the rules bar is its score before a post-hoc fix (40.7%).", wide: true },
+      { src: "assets/shots/grasp/three-systems.jpg", caption: "All three systems on one test image. Green is the labeled grasps, red the rules, blue the trained network, and orange GPT-4o's five calls." },
+      { src: "assets/shots/grasp/marked-grasps.jpg", caption: "The follow-up experiment. GPT-4o picked mark 6, along the object, on all five calls. Mark 10, across the middle, passes the test." },
     ],
     evidence: [
       { label: "Read the paper (PDF)", url: "assets/papers/grasp-benchmark.pdf", kind: "paper" },
@@ -391,6 +430,11 @@ const ENTRIES = [
         "title": "The paper in 58 seconds",
         "text": "A 58-second summary of the paper: why memory bandwidth sets how fast a laptop runs a language model, how closely a simple model predicted a 7B model it never saw (3.3% mean error), and why processing-in-memory chips help much less once the laptop runs 4-bit weights. The PIM numbers are projections, not measurements."
       }
+    ],
+    "galleryTitle": "Figures from the paper",
+    "gallery": [
+      { "src": "assets/shots/near-memory/decode-vs-bytes.png", "caption": "Decode speed against weight bytes read per token. The dashed line is measured bandwidth divided by bytes, with no fitted parameters." },
+      { "src": "assets/shots/near-memory/pim-gain.png", "caption": "Projected processing-in-memory speedup for Qwen2.5-3B. At r = 4, a 16-bit part gains about 3.5 times over the 16-bit host but only about 1.2 times over the 4-bit host." },
     ],
     "evidence": [
       {
@@ -553,6 +597,10 @@ const ENTRIES = [
       "The prize included a $1,500 grand prize and work experience with EY.",
     ],
     tech: ["Strategy", "Financial analysis", "Presenting"],
+    galleryTitle: "Evidence",
+    gallery: [
+      { src: "assets/shots/case/winners.jpg", caption: "The official 2025 results page, with our team in first place." },
+    ],
     evidence: [
       { label: "2025 winners: my team and name", url: "https://www.casecomp.org/winning-teams-2025", kind: "doc", primary: true },
       { label: "Our winning case solution", url: "https://www.casecomp.org/top-case-solutions-2025", kind: "doc", primary: true },

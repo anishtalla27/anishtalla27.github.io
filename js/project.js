@@ -26,6 +26,15 @@
   const watch = e.videos && e.videos.length ? `<a class="btn light" href="#video"><span aria-hidden="true">▶</span> Watch video</a>` : "";
   const actions = main.length || watch ? `<div class="btns">${main.map((x, i) => `<a class="btn ${i ? "ghost" : "primary"}" href="${x.url}" ${extAttrs(x.url)}>${esc(x.label)} ↗</a>`).join("")}${watch}</div>` : "";
 
+  // Real screenshots and figures, numbered like figures in a paper. Click one to see it larger.
+  const gallery = e.gallery && e.gallery.length
+    ? `<div class="card block reveal"><h2>${esc(e.galleryTitle || "Images")}</h2>
+      <div class="gallery ${e.galleryLayout || ""}">${e.gallery.map((g, i) => `<figure class="${g.wide ? "wide" : ""}">
+        <button type="button" class="zoom" data-i="${i}" aria-label="Enlarge figure ${i + 1}"><img src="${g.src}" alt="${esc(g.caption)}" loading="lazy"></button>
+        <figcaption><span class="fig">FIG. ${String(i + 1).padStart(2, "0")}</span>${esc(g.caption)}</figcaption></figure>`).join("")}</div>
+      ${e.galleryNote ? `<p class="demo-note">${esc(e.galleryNote)}</p>` : ""}</div>`
+    : "";
+
   const others = ENTRIES.filter((x) => x.category === e.category && x.id !== e.id && entryDestination(x)).slice(0, 4);
 
   root.innerHTML = `
@@ -43,6 +52,7 @@
         ${e.videos && e.videos.length ? `<div class="vids${e.videos.length === 1 ? " one" : ""} reveal" id="video">${e.videos.map((v) => `<figure class="vid ${v.shape || ""}">
           <video src="${v.src}" poster="${v.poster || ""}" controls playsinline preload="none"></video>
           <figcaption><b>${esc(v.title)}</b>${v.text.split("\n\n").map((t) => `<p>${esc(t)}</p>`).join("")}</figcaption></figure>`).join("")}</div>` : ""}
+        ${gallery}
         ${e.shots && e.shots.length ? `<div class="shots reveal">${e.shots.map((s) => `<img src="${s}" alt="${esc(e.title)} screenshot" loading="lazy">`).join("")}</div>` : ""}
         ${e.demo ? `<div class="reveal" id="demo-slot"></div>` : ""}
         ${e.glance ? `<div class="card block glance reveal"><h2>At a glance</h2><p>${esc(e.glance.text)}</p>
@@ -60,6 +70,20 @@
     </div>`;
 
   if (e.demo) mountDemo(e.demo, document.getElementById("demo-slot"));
+  if (e.gallery && e.gallery.length) {
+    const box = document.createElement("dialog");
+    box.className = "lightbox";
+    box.innerHTML = `<button type="button" class="lb-close" aria-label="Close">×</button><img alt=""><p></p>`;
+    document.body.appendChild(box);
+    box.addEventListener("click", () => box.close());
+    root.querySelectorAll(".gallery .zoom").forEach((b) => b.addEventListener("click", () => {
+      const g = e.gallery[b.dataset.i];
+      box.querySelector("img").src = g.src;
+      box.querySelector("img").alt = g.caption;
+      box.querySelector("p").textContent = g.caption;
+      box.showModal();
+    }));
+  }
   initReveal();
   // The page is rendered by script, so the browser cannot jump to #video on its own.
   if (location.hash === "#video") {
