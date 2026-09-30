@@ -409,6 +409,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .vid figcaption b { display: block; margin-bottom: 4px; color: var(--ink, inherit); }
 @media (max-width: 860px) { .vids { grid-template-columns: 1fr; } .vid.tall { max-width: 320px; } }
 .vids { scroll-margin-top: 80px; }
-.card a.vidlink { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 4px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
-.card a.vidlink:hover { background: var(--blue); text-decoration: none; }
-.card a.vidlink span { font-size: 10px; }
+.card a.vidlink, .row a.vidlink { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 4px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+.card a.vidlink:hover, .row a.vidlink:hover { background: var(--blue); text-decoration: none; }
+.card a.vidlink span, .row a.vidlink span { font-size: 10px; }
+.row a.vidlink { margin-top: 6px; font-size: 12px; padding: 2px 8px; }
