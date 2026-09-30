@@ -206,14 +206,14 @@ const ENTRIES = [
         poster: "assets/video/stringmap-promo.jpg",
         shape: "wide",
         title: "Promo video (16:9)",
-        text: "A 26-second ad cut to the beat: lessons, the Songbook, playback, practice tools, and a look at the engine choosing a fingering. The screens are real App Store screenshots, the fretboard is redrawn from the app's own view code, and the soundtrack is Minuet in G played through the app's bundled guitar SoundFont. The fingering numbers on screen come from a Python port of the Swift engine, not from hand-placed values.",
+        text: "A 26-second ad for the app. The screens are real App Store screenshots, the music is Minuet in G played through the app's guitar sound, and the fingerings on screen come from a port of the app's own engine.",
       },
       {
         src: "assets/video/stringmap-promo-vertical.mp4",
         poster: "assets/video/stringmap-promo-vertical.jpg",
         shape: "tall",
         title: "Vertical cut (9:16)",
-        text: "The same ad laid out for TikTok and Reels, with headlines kept clear of the caption area and action buttons.",
+        text: "The same ad, laid out vertically for TikTok and Reels.",
       },
     ],
     evidence: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
@@ -246,7 +246,7 @@ const ENTRIES = [
         poster: "assets/video/launchpad.jpg",
         shape: "wide",
         title: "Product film (52 seconds)",
-        text: "The first half is the product. It opens on one bracelet priced from $1.00 up to $6.50, with the app's real profit cards flipping from −$0.99 to +$4.51 per item. Then it walks through the five main tools: the setup chat, the cost breakdown, the pricing model, the report card, and the business tracker. The report card grades every plan the same way: profit on each sale counts for 50%, break-even for 25%, cost detail for 15%, and product clarity for 10%.\n\nThe second half shows the backend. Every AI request goes from the browser to a server function that checks the user is signed in, limits them to 20 requests per 10 minutes and 150 per day (enforced in the database), and only then calls the model. If anything fails, the app falls back to built-in answers. The AI can reword feedback but cannot change the numbers: the code on screen throws out any rewrite that drops a dollar figure. The two rewrites in that part are examples written to show the check, not real model output.\n\nThe closing stats come from the repository: 279 automated tests passing, 20 database tables, 18 of them locked so each user only sees their own rows, and 30 database security checks.",
+        text: "A 52-second product film. The first half walks through the app using one bracelet priced from $1.00 to $6.50. The second half shows the backend: signed-in, rate-limited AI requests with offline fallbacks, a check that stops the AI from changing any numbers, and 279 passing tests. The two AI rewrites shown are examples I wrote to demonstrate that check.",
       },
     ],
     evidence: [
@@ -310,7 +310,7 @@ const ENTRIES = [
     details: [
       "Paper title: Three Ways to Miss a Grasp: A Same-Metric Comparison of Rule-Based, Learned, and Zero-Shot Vision-Language Grasp Prediction.",
       "Every system gets the same 123 test images, returns the same grasp rectangle, and is scored by one implementation of the standard Cornell rectangle test.",
-      "The dataset has no object IDs, so I reconstructed them to keep every physical object in only one of train, validation, or test. Statistics are computed over the 35 test objects, not over images, which widens the confidence intervals honestly.",
+      "The dataset has no object IDs, so I reconstructed them to keep every physical object in only one of train, validation, or test. Statistics are computed over the 35 test objects instead of over images, which gives wider confidence intervals.",
       "A shared failure taxonomy shows each system breaks at a different stage: the rules miss on angle, the network on placement and sizing, and GPT-4o puts more than half of its grasp centers outside the labeled region.",
       "Follow-up experiment: instead of writing pixel coordinates, GPT-4o only had to pick one of several numbered grasps drawn on the image. Its accuracy stayed at the level of random selection, so the limit is choosing the grasp, not expressing it.",
       "Rerunning the first training recipe with new seeds showed an apparent ResNet18 vs ResNet34 gap was run-to-run variation. A single-seed comparison would have reported it as a finding.",
@@ -326,7 +326,7 @@ const ENTRIES = [
         poster: "assets/video/grasp-benchmark.jpg",
         shape: "wide",
         title: "The paper in 25 seconds",
-        text: "It opens on a real test image, a toothbrush the models never saw in training, with the human-labeled grasps in green and GPT-4o's five saved answers in orange. None of the five lands on the object. From there it walks through the paper in order: the object-wise split, the rectangle test worked out on screen, and the results with 95% confidence intervals. The last part is the follow-up experiment. GPT-4o no longer had to write coordinates, only pick one of 12 numbered grasps, and on the pen shown it picked the same failing mark on all five calls. Across the test set it was right 18.7% of the time, below the 20.1% a random pick would get. Every rectangle, pick, and number is drawn from the project's saved predictions and the paper's tables, not placed by hand.",
+        text: "A 25-second summary of the paper. It opens on a test image where none of GPT-4o's five grasps land on the object, then shows the results and the follow-up where GPT-4o only had to pick from 12 marked grasps and still did no better than chance. Every rectangle and number comes from the saved predictions.",
       },
     ],
     evidence: [
@@ -398,7 +398,7 @@ const ENTRIES = [
         "poster": "assets/video/near-memory.jpg",
         "shape": "wide",
         "title": "The paper in 58 seconds",
-        "text": "How fast can a laptop run a language model? Mostly as fast as its memory can hand over the weights. To produce each token the model reads all of its weights once, so on a MacBook Air (M4, 16 GB) the speed is roughly memory bandwidth divided by model size.\n\nI measured this across four Qwen2.5 models (0.5B to 7B) in up to seven weight formats: 23 configurations and 79 benchmark runs with llama.cpp. 16-bit decode reaches 83 to 95% of the bandwidth ÷ bytes limit with no fitted parameters. A simple latency model fitted on two model sizes predicted a 7B model it had never seen with a mean error of 3.3%.\n\nThen I asked whether processing-in-memory chips, which compute inside the DRAM, would help. For the 3B model, a 16-bit PIM part with 4× the internal bandwidth comes out 3.5× faster than the laptop running 16-bit weights, but only 1.2× faster than the 4-bit model people already run. The PIM numbers are projections from published specs, not measurements on real PIM hardware."
+        "text": "A 58-second summary of the paper: why memory bandwidth sets how fast a laptop runs a language model, how closely a simple model predicted a 7B model it never saw (3.3% mean error), and why processing-in-memory chips help much less once the laptop runs 4-bit weights. The PIM numbers are projections, not measurements."
       }
     ],
     "evidence": [
@@ -463,7 +463,7 @@ const ENTRIES = [
     status: "Completed",
     featured: true,
     summary: "A reproducible Python pipeline predicting ice-hockey outcomes: team rankings, playoff matchup probabilities, and line disparity.",
-    problem: "Predict game outcomes from season data, and show the predictions are calibrated and robust rather than lucky.",
+    problem: "Predict game outcomes from season data, and check that the predictions are calibrated.",
     contribution: "Team project. I worked on the modeling pipeline and its reproducibility checks.",
     tech: ["Python", "Logistic regression", "Calibration", "Jupyter"],
     details: [
@@ -487,10 +487,10 @@ const ENTRIES = [
     problem:
       "Fantasy advice is everywhere and almost none of it is scored. I wanted to know whether modeling workload and uncertainty actually beats trusting recent box scores, and by how much, measured out-of-sample before I let it touch my own lineup.",
     contribution:
-      "Solo project. I set the evaluation protocol first, then built the data layer, features, models, and decision layer, and wrote the backtest report, including the parts that make the result look smaller than it sounds.",
+      "Solo project. I set the evaluation protocol first, then built the data layer, features, models, and decision layer, and wrote the backtest report, including its limitations.",
     tech: ["Python", "CatBoost", "nflverse / nflreadpy", "Sleeper API", "Integer programming", "Gaussian copula", "Bootstrap confidence intervals", "Streamlit", "pytest"],
     glance: {
-      text: "On 38,674 close start/sit calls from the 2025 holdout, the model picked the higher scorer 56.2% of the time. Sleeper's own projections got 55.9%, and recent box scores 51.8%. The forecasting edge over consensus is real but small, and the report says so in those words.",
+      text: "On 38,674 close start/sit calls from the 2025 holdout, the model picked the higher scorer 56.2% of the time. Sleeper's own projections got 55.9%, and recent box scores 51.8%. The edge over consensus is small.",
       bars: [
         { label: "Fourth Down", value: 56.2 },
         { label: "Sleeper projections", value: 55.9 },
@@ -500,19 +500,19 @@ const ENTRIES = [
     },
     details: [
       "Three forecast members per player: a CatBoost model on lagged usage (targets, carries, snap/target/air-yard share), team volume, opponent points allowed, Vegas implied totals, vacated usage from inactive teammates, and depth rank; Sleeper's projected stat components re-scored under this league's rules; and FantasyPros expert consensus rank mapped to points by a per-position monotone fit.",
-      "A non-negative stacker blends the members per position, but a gate decides whether the blend ships at all. It only replaces the best single member where it beat that member on the 2025 holdout with a week-block bootstrap 95% confidence interval excluding zero. It currently passes for RB, WR, and K; QB and TE fall back to Sleeper, and DEF to my own model. Saying no is most of what the gate does.",
+      "A non-negative stacker blends the members per position, but a gate decides whether the blend ships at all. It only replaces the best single member where it beat that member on the 2025 holdout with a week-block bootstrap 95% confidence interval excluding zero. It currently passes for RB, WR, and K; QB and TE fall back to Sleeper, and DEF to my own model.",
       "Ranges come from a model of absolute error, so volatile players get wider ones, plus empirical residual shapes by position and projection level. Observed 80% coverage on 2025 was 78 to 82%. No conformal guarantee is claimed, because weekly football data is not exchangeable.",
       "Same-game correlation goes through a Gaussian copula, so a quarterback and his receivers, a defense and the opposing quarterback, and a kicker and his own defense move together in simulation instead of independently.",
-      "The decision layer is where most of the practical value sits: lineup choice as an integer program under legality and lock constraints, win-probability tie-breaks against the actual opponent's roster, waiver values measured as rest-of-season gain to this specific roster weighted toward the playoffs, FAAB ranges, and streamer lists.",
-      "Leakage control is structural. Features attach to future rows by a backward as-of join on the day after each game, so a target game cannot enter its own features. A test multiplies every outcome from a cutoff onward by 7 and fails if any earlier feature moves.",
+      "The decision layer handles lineup choice as an integer program under legality and lock constraints, win-probability tie-breaks against the actual opponent's roster, waiver values measured as rest-of-season gain to this specific roster weighted toward the playoffs, FAAB ranges, and streamer lists.",
+      "To prevent leakage, features attach to future rows by a backward as-of join on the day after each game, so a target game cannot enter its own features. A test multiplies every outcome from a cutoff onward by 7 and fails if any earlier feature moves.",
       "The scoring engine reconciles to Sleeper's own 2025 stat lines on 99.85% of player-weeks, and the brief refuses to print a lineup that fails an independent legality check.",
       "It only reads. It never submits a roster move, and injury tags are week-aware: while last week's games are still unfinished, an Out tag describes last week and gets flagged rather than applied.",
     ],
     outcomes: [
       "Measured on the 2025 holdout: 56.2% on close start/sit calls against 55.9% for Sleeper and 51.8% for recent form, and 120.9 lineup points per week on synthetic rosters against 120.7 and 118.0. That is roughly 3 points a week over trusting recent box scores, and a fraction of a point over consensus.",
       "80% prediction intervals covered 78 to 82% of actual outcomes across all six positions.",
-      "Runs three times a week in season and logs every forecast to a prospective ledger before kickoff, so the live record will eventually be checkable rather than remembered.",
-      "Honest limits, stated in the report: rest-of-season values and FAAB bids are heuristics, win probabilities are unverified until the ledger accumulates, and the 2025 holdout was looked at twice rather than once.",
+      "Runs three times a week in season and logs every forecast to a prospective ledger before kickoff, so the live record can be checked later.",
+      "Limits stated in the report: rest-of-season values and FAAB bids are heuristics, win probabilities are unverified until the ledger accumulates, and the 2025 holdout was looked at twice rather than once.",
     ],
     evidence: [
       { label: "Source code", url: GH + "/FantasyFootballModel", kind: "code", primary: true },
