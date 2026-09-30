@@ -313,11 +313,11 @@ const ENTRIES = [
     ],
     videos: [
       {
-        src: "assets/video/grasp-benchmark.mp4",
-        poster: "assets/video/grasp-benchmark.jpg",
+        src: "assets/video/grasp-benchmark.mp4?v=2",
+        poster: "assets/video/grasp-benchmark.jpg?v=2",
         shape: "wide",
-        title: "The paper in 25 seconds",
-        text: "A 25-second summary of the paper. It opens on a test image where none of GPT-4o's five grasps land on the object, then shows the results and the follow-up where GPT-4o only had to pick from 12 marked grasps and still did no better than chance. Every rectangle and number comes from the saved predictions.",
+        title: "The paper in 50 seconds",
+        text: "A 50-second walkthrough of the paper: how each system works and where it fails, the results with confidence intervals, and the follow-up where GPT-4o only had to pick from marked grasps and still did no better than chance. Every rectangle, reply, and number comes from the saved predictions.",
       },
     ],
     evidence: [
