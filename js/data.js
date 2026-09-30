@@ -193,6 +193,50 @@ const ENTRIES = [
 
   // ---------------------------------------------------------------- PROJECTS
   {
+    id: "launchpad",
+    cover: "chart",
+    title: "LaunchPad",
+    category: "project",
+    org: "LittleCEOs",
+    role: "Lead developer",
+    dates: "2025",
+    status: "Shipped",
+    featured: true,
+    summary:
+      "A web platform where young entrepreneurs (roughly ages 8 to 14) price products, track their business, and get AI coaching.",
+    problem: "Kids selling at markets and fairs rarely know if they are making money. They need tools sized for them, not a spreadsheet.",
+    contribution: "Led development through LittleCEOs, including frontend, mobile responsiveness, branding, and deployment.",
+    tech: ["Vite", "React", "TypeScript", "Tailwind", "shadcn/ui", "React Router", "OpenRouter / Gemini", "Vercel"],
+    details: [
+      "Pricing Lab walks through fixed costs, variable costs, and margins for a product.",
+      "Tracks sales, expenses, events, inventory, and customer reviews.",
+      "AI coach gives feedback on product ideas, and a roughly 12-week simulation lets students test decisions.",
+      "Explored running a local model in the browser (WebLLM) with a hosted fallback and rule-based behavior when no API is available.",
+    ],
+    outcomes: ["Platform audience of 40+ young entrepreneurs."],
+    videos: [
+      {
+        src: "assets/video/launchpad.mp4",
+        poster: "assets/video/launchpad.jpg",
+        shape: "wide",
+        title: "Product film (52 seconds)",
+        text: "A 52-second product film. The first half walks through the app using one bracelet priced from $1.00 to $6.50. The second half shows the backend: signed-in, rate-limited AI requests with offline fallbacks, a check that stops the AI from changing any numbers, and 279 passing tests. The two AI rewrites shown are examples I wrote to demonstrate that check.",
+      },
+    ],
+    galleryTitle: "Screens from the app",
+    galleryNote: "Shown with the app's sample bracelet business.",
+    gallery: [
+      { src: "assets/shots/launchpad/pricing.jpg", caption: "Pricing. Moving the price or sales goal updates profit, margin, and break-even." },
+      { src: "assets/shots/launchpad/report-card.jpg", caption: "The report card. The same costs, price, and margin always get the same score." },
+      { src: "assets/shots/launchpad/business-numbers.jpg", caption: "The report's numbers: monthly money flow, the cost of one item, and the full financial breakdown.", wide: true },
+      { src: "assets/shots/launchpad/inventory.jpg", caption: "Inventory in the business tracker, with stock levels and the value of what is on hand.", wide: true },
+    ],
+    evidence: [
+      { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
+      { label: "Source code", url: GH + "/LaunchPad", kind: "code" },
+    ],
+  },
+  {
     id: "stringmap",
     cover: "fretboard",
     title: "StringMap",
@@ -241,48 +285,6 @@ const ENTRIES = [
       { src: "assets/shots/stringmap/songbook-chords.jpg", caption: "The same tune as chords, with a fingering for each shape." },
     ],
     evidence: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
-  },
-  {
-    id: "launchpad",
-    cover: "chart",
-    title: "LaunchPad",
-    category: "project",
-    org: "LittleCEOs",
-    role: "Lead developer",
-    dates: "2025",
-    status: "Shipped",
-    featured: true,
-    summary:
-      "A web platform where young entrepreneurs (roughly ages 8 to 14) price products, track their business, and get AI coaching.",
-    problem: "Kids selling at markets and fairs rarely know if they are making money. They need tools sized for them, not a spreadsheet.",
-    contribution: "Led development through LittleCEOs, including frontend, mobile responsiveness, branding, and deployment.",
-    tech: ["Vite", "React", "TypeScript", "Tailwind", "shadcn/ui", "React Router", "OpenRouter / Gemini", "Vercel"],
-    details: [
-      "Pricing Lab walks through fixed costs, variable costs, and margins for a product.",
-      "Tracks sales, expenses, events, inventory, and customer reviews.",
-      "AI coach gives feedback on product ideas, and a roughly 12-week simulation lets students test decisions.",
-      "Explored running a local model in the browser (WebLLM) with a hosted fallback and rule-based behavior when no API is available.",
-    ],
-    outcomes: ["Platform audience of 40+ young entrepreneurs."],
-    videos: [
-      {
-        src: "assets/video/launchpad.mp4",
-        poster: "assets/video/launchpad.jpg",
-        shape: "wide",
-        title: "Product film (52 seconds)",
-        text: "A 52-second product film. The first half walks through the app using one bracelet priced from $1.00 to $6.50. The second half shows the backend: signed-in, rate-limited AI requests with offline fallbacks, a check that stops the AI from changing any numbers, and 279 passing tests. The two AI rewrites shown are examples I wrote to demonstrate that check.",
-      },
-    ],
-    galleryTitle: "Screens from the app",
-    galleryNote: "Shown with the app's sample bracelet business.",
-    gallery: [
-      { src: "assets/shots/launchpad/pricing.jpg", caption: "Pricing. Moving the price or sales goal updates profit, margin, and break-even." },
-      { src: "assets/shots/launchpad/report-card.jpg", caption: "The report card. The same costs, price, and margin always get the same score." },
-    ],
-    evidence: [
-      { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
-      { label: "Source code", url: GH + "/LaunchPad", kind: "code" },
-    ],
   },
   {
     id: "meeting-transcriber",
@@ -486,22 +488,20 @@ const ENTRIES = [
 
   // ---------------------------------------------------------------- DATA SCIENCE
   {
-    id: "wharton",
-    cover: "sigmoid",
-    title: "Wharton HS Data Science Competition",
+    id: "tutorial-forks",
+    cover: "code",
+    title: "PPBDS tutorial and curriculum repositories",
     category: "datasci",
-    dates: "2026",
-    status: "Completed",
-    featured: true,
-    summary: "A reproducible Python pipeline predicting ice-hockey outcomes: team rankings, playoff matchup probabilities, and line disparity.",
-    problem: "Predict game outcomes from season data, and check that the predictions are calibrated.",
-    contribution: "Team project. I worked on the modeling pipeline and its reproducibility checks.",
-    tech: ["Python", "Logistic regression", "Calibration", "Jupyter"],
-    details: [
-      "Win probabilities from logistic regression feed rankings and matchup predictions.",
-      "Includes calibration, robustness, and reproducibility checks so every output can be regenerated.",
+    status: "Ongoing",
+    summary: "Shared PPBDS teaching packages supporting interactive R lessons. My internship page links to my contributions; these repositories provide the broader project context.",
+    tech: ["R", "learnr", "Quarto"],
+    details: [],
+    evidence: [
+      { label: "PPBDS/primer.tutorials", url: "https://github.com/PPBDS/primer.tutorials", kind: "code" },
+      { label: "PPBDS/r4ds.tutorials", url: "https://github.com/PPBDS/r4ds.tutorials", kind: "code" },
+      { label: "PPBDS/vscode.tutorials", url: "https://github.com/PPBDS/vscode.tutorials", kind: "code" },
+      { label: "PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
     ],
-    evidence: [{ label: "Source code", url: GH + "/WhartonDataScience", kind: "code" }, { label: "Official Wharton competition and challenge", url: "https://wsb.wharton.upenn.edu/wharton-data-competition/about/", kind: "live" }],
   },
   {
     id: "fourth-down",
@@ -551,30 +551,22 @@ const ENTRIES = [
     ],
   },
   {
-    id: "tutorial-forks",
-    cover: "code",
-    title: "PPBDS tutorial and curriculum repositories",
+    id: "wharton",
+    cover: "sigmoid",
+    title: "Wharton HS Data Science Competition",
     category: "datasci",
-    status: "Ongoing",
-    summary: "Shared PPBDS teaching packages supporting interactive R lessons. My internship page links to my contributions; these repositories provide the broader project context.",
-    tech: ["R", "learnr", "Quarto"],
-    details: [],
-    evidence: [
-      { label: "PPBDS/primer.tutorials", url: "https://github.com/PPBDS/primer.tutorials", kind: "code" },
-      { label: "PPBDS/r4ds.tutorials", url: "https://github.com/PPBDS/r4ds.tutorials", kind: "code" },
-      { label: "PPBDS/vscode.tutorials", url: "https://github.com/PPBDS/vscode.tutorials", kind: "code" },
-      { label: "PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
-    ],
-  },
-  {
-    id: "tsa-geospatial",
-    title: "TSA Geospatial Technology",
-    category: "datasci",
+    dates: "2026",
     status: "Completed",
-    summary: "A portfolio analyzing the urban heat island effect in Fairfax County using publicly available NASA DEVELOP data.",
-    tech: ["GIS", "Remote sensing data"],
-    details: [],
-    evidence: [],
+    featured: true,
+    summary: "A reproducible Python pipeline predicting ice-hockey outcomes: team rankings, playoff matchup probabilities, and line disparity.",
+    problem: "Predict game outcomes from season data, and check that the predictions are calibrated.",
+    contribution: "Team project. I worked on the modeling pipeline and its reproducibility checks.",
+    tech: ["Python", "Logistic regression", "Calibration", "Jupyter"],
+    details: [
+      "Win probabilities from logistic regression feed rankings and matchup predictions.",
+      "Includes calibration, robustness, and reproducibility checks so every output can be regenerated.",
+    ],
+    evidence: [{ label: "Source code", url: GH + "/WhartonDataScience", kind: "code" }, { label: "Official Wharton competition and challenge", url: "https://wsb.wharton.upenn.edu/wharton-data-competition/about/", kind: "live" }],
   },
 
   // ---------------------------------------------------------------- AWARDS
@@ -663,7 +655,7 @@ const ENTRIES = [
   },
 ];
 
-const FEATURED_ORDER = ["stringmap", "grasp-benchmark", "fourth-down", "trackmyshuttle", "kane-ppbds", "launchpad", "wharton"];
+const FEATURED_ORDER = ["trackmyshuttle", "kane-ppbds", "launchpad", "grasp-benchmark", "stringmap", "fourth-down", "wharton"];
 
 const ACADEMICS = [
   { area: "ACT", items: ["35 composite: 36 Math, 36 English, 33 Reading"] },
