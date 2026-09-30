@@ -69,11 +69,9 @@ const ENTRIES = [
       "Internal tools used across operations, support, and marketing teams.",
     ],
     galleryTitle: "Screens and automations",
-    galleryNote: "TMS Hub screens use demo data. Every organization and person shown is fictional.",
+    galleryNote: "The Hub screen is shown with a demo account.",
     gallery: [
       { src: "assets/shots/trackmyshuttle/chooser.jpg", caption: "Signing in to TMS Hub opens a workspace chooser, with one hub per team." },
-      { src: "assets/shots/trackmyshuttle/board.jpg", caption: "The selling pipeline. Each card is an organization, with its owner and time in stage." },
-      { src: "assets/shots/trackmyshuttle/drawer.jpg", caption: "Opening a record shows where it is, the suggested next move, and what Airtable will and will not do when it changes.", wide: true },
       { src: "assets/shots/trackmyshuttle/fedex-automation.jpg", caption: "The FedEx label automation in Make. An Airtable webhook creates the shipment, saves tracking, and files the label in Google Drive. A failed label is saved for review instead of retried.", wide: true },
     ],
     evidence: [
@@ -278,10 +276,8 @@ const ENTRIES = [
     galleryTitle: "Screens from the app",
     galleryNote: "Shown with the app's sample bracelet business.",
     gallery: [
-      { src: "assets/shots/launchpad/setup-chat.jpg", caption: "Setup chat. The app asks about the product one question at a time." },
       { src: "assets/shots/launchpad/pricing.jpg", caption: "Pricing. Moving the price or sales goal updates profit, margin, and break-even." },
       { src: "assets/shots/launchpad/report-card.jpg", caption: "The report card. The same costs, price, and margin always get the same score." },
-      { src: "assets/shots/launchpad/tracker.jpg", caption: "The business tracker: sales, expenses, inventory, and a monthly goal." },
     ],
     evidence: [
       { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
