@@ -272,16 +272,6 @@ const ENTRIES = [
     ],
     evidence: [{ label: "Source code", url: GH + "/MeetingTranscriber", kind: "code" }],
   },
-  {
-    id: "earlier-projects",
-    title: "Earlier projects",
-    category: "project",
-    status: "Completed",
-    summary: "TouchSense 2.0, a country-flag game, an ethical-scenario platformer, and an Arduino Smart Shelf. Early work that got me building.",
-    tech: ["Swift", "JavaScript", "Arduino"],
-    details: [],
-    evidence: [{ label: "GitHub profile", url: GH, kind: "code" }],
-  },
 
   // ---------------------------------------------------------------- RESEARCH
   {
