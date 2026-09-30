@@ -43,7 +43,7 @@ const ENTRIES = [
     problem:
       "Company operations were spread across Airtable bases, email, HubSpot, and manual steps. Teams needed usable applications on top of that data without breaking the workflows that already worked.",
     contribution:
-      "I made the architectural decisions and directed development, with substantial AI collaboration on implementation. I was responsible for how the system should behave, for testing it in real authenticated sessions, and for release checks. Collaborators included a fellow developer on the events calendar and stakeholders across operations, support, and marketing.",
+      "I made the architectural decisions. I was responsible for how the system should behave, for testing it in real authenticated sessions, and for release checks. Collaborators included a fellow developer on the events calendar and stakeholders across operations, support, and marketing.",
     tech: ["TypeScript", "React", "Vite", "Tailwind", "Node.js", "Express", "PostgreSQL", "Airtable", "Clerk", "Make", "FedEx API", "HubSpot", "Gmail API", "Replit", "AWS ECS"],
     details: [
       "TMS Hub is a TypeScript/React monorepo: separate frontends (launcher, Admin Hub, Partner Hub, Marketing Hub) over one shared backend, with shared type contracts between packages.",
@@ -371,7 +371,7 @@ const ENTRIES = [
     "status": "Completed",
     "summary": "Measured how memory bandwidth limits on-device language-model inference across 23 configurations, then modeled what processing-in-memory hardware could change.",
     "problem": "Generating a token requires reading the model weights from memory. How closely does memory bandwidth predict the time that takes, and would computing inside memory still help when the host already uses 4-bit weights?",
-    "contribution": "Chose the research question and experimental approach, provided and operated the laptop, and reviewed the benchmark results, analytical models, and manuscript.",
+    "contribution": "Chose the research question and experimental approach, and ran the benchmarks on my own laptop.",
     "tech": [
       "Python",
       "llama.cpp",
