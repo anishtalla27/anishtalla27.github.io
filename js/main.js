@@ -32,7 +32,7 @@
     const hay = [e.title, e.org, e.role, e.summary, e.status, ...(e.tech || [])].join(" ").toLowerCase();
     const k = link && KIND[link.kind];
     return `<div class="row" data-cat="${e.category} ${(e.alsoIn || []).join(" ")}" data-hay="${esc(hay)}">
-      <div>${destination ? `<a class="t" href="${destination}" ${extAttrs(destination)}>${esc(e.title)} <span class="arr" aria-hidden="true">${hasMoreContent(e) ? "→" : "↗"}</span></a>` : `<span class="t">${esc(e.title)}</span>`}<div class="c">${esc(CATEGORIES[e.category])}</div>${e.videos && e.videos.length ? `<a class="vidlink" href="project.html?id=${e.id}#video"><span aria-hidden="true">▶</span> Watch video</a>` : ""}</div>
+      <div>${destination ? `<a class="t" href="${destination}" ${extAttrs(destination)}>${esc(e.title)} <span class="arr" aria-hidden="true">${hasMoreContent(e) ? "→" : "↗"}</span></a>` : `<span class="t">${esc(e.title)}</span>`}<div class="c">${esc(CATEGORIES[e.category])}</div>${e.videos && e.videos.length ? `<a class="vidlink" href="project.html?id=${e.id}#video">Watch video <span aria-hidden="true">→</span></a>` : ""}</div>
       <div class="s">${esc(e.summary)}</div>
       <span class="stt ${statusClass(e.status)}">${esc((e.status || "").toLowerCase())}</span>
       ${k ? `<a class="ev ${k.cls}" href="${link.url}" ${extAttrs(link.url)}>${k.short} ↗</a>` : `<span class="ev"></span>`}

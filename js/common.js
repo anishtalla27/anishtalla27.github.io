@@ -56,7 +56,7 @@ function cardHTML(e, i, big, compact = false) {
     <div class="meta">${metaLine(e)}</div>
     <p class="sum">${esc(e.summary)}</p>
     ${compact ? "" : stack(e.tech, big ? 8 : 5)}
-    ${more || k || (e.videos && e.videos.length) ? `<div class="more">${more ? `<a class="go" href="project.html?id=${e.id}" aria-label="Read more about ${esc(e.title)}">Read more <span aria-hidden="true">→</span></a>` : ""}${e.videos && e.videos.length ? `<a class="vidlink" href="project.html?id=${e.id}#video"><span aria-hidden="true">▶</span> Watch video</a>` : ""}${k ? `<a class="ext ${k.cls}" href="${link.url}" ${extAttrs(link.url)}>${esc(link.label)} ↗</a>` : ""}</div>` : ""}
+    ${more || k || (e.videos && e.videos.length) ? `<div class="more">${more ? `<a class="go" href="project.html?id=${e.id}" aria-label="Read more about ${esc(e.title)}">Read more <span aria-hidden="true">→</span></a>` : ""}${e.videos && e.videos.length ? `<a class="vidlink" href="project.html?id=${e.id}#video">Watch video <span aria-hidden="true">→</span></a>` : ""}${k ? `<a class="ext ${k.cls}" href="${link.url}" ${extAttrs(link.url)}>${esc(link.label)} ↗</a>` : ""}</div>` : ""}
     ${compact ? "</div>" : ""}
   </article>`;
 }
