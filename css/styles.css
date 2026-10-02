@@ -367,8 +367,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .row { cursor: pointer; }
 .phead .btns { margin-top: 26px; }
 
-/* Compact repeats retain the original card surfaces and animated illustrations. */
+/* Compact cards for the work list. */
 .entry-list { display: grid; gap: 16px; }
+.work-count { margin: -12px 0 20px; color: var(--muted); font: 13px var(--mono); }
 .card.compact { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; align-items: center; }
 .card.compact .cover { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); }
 .card.compact .cover svg { height: 110px; }

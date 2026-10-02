@@ -11,55 +11,66 @@
   contactButtons($("#foot-btns"), true);
   if (window.mountHero) mountHero($("#hero-canvas"));
 
-  // cards
-  const featured = document.querySelector("[data-featured]");
-  featured.innerHTML = FEATURED_ORDER.map((id) => ENTRIES.find((e) => e.id === id)).filter(Boolean).map((e, i) => cardHTML(e, i)).join("");
-  document.querySelectorAll("[data-cat]").forEach((grid) => {
-    const cat = grid.dataset.cat;
-    const big = grid.hasAttribute("data-big");
-    grid.innerHTML = ENTRIES.filter((e) => e.category === cat || (e.alsoIn || []).includes(cat))
-      .map((e, i) => cardHTML(e, i, big, true)).join("");
-  });
-
-  // demos
-  document.querySelectorAll("[data-demo]").forEach((el) => mountDemo(el.dataset.demo, el));
-
-  // index
-  const rows = $("#idx-rows");
-  rows.innerHTML = ENTRIES.map((e) => {
-    const link = firstLink(e);
-    const destination = entryDestination(e);
-    const hay = [e.title, e.org, e.role, e.summary, e.status, ...(e.tech || [])].join(" ").toLowerCase();
-    const k = link && KIND[link.kind];
-    return `<div class="row" data-cat="${e.category} ${(e.alsoIn || []).join(" ")}" data-hay="${esc(hay)}">
-      <div>${destination ? `<a class="t" href="${destination}" ${extAttrs(destination)}>${esc(e.title)} <span class="arr" aria-hidden="true">${hasMoreContent(e) ? "→" : "↗"}</span></a>` : `<span class="t">${esc(e.title)}</span>`}<div class="c">${esc(CATEGORIES[e.category])}</div>${e.videos && e.videos.length ? `<a class="vidlink" href="project.html?id=${e.id}#video">Watch video <span aria-hidden="true">→</span></a>` : ""}</div>
-      <div class="s">${esc(e.summary)}</div>
-      <span class="stt ${statusClass(e.status)}">${esc((e.status || "").toLowerCase())}</span>
-      ${k ? `<a class="ev ${k.cls}" href="${link.url}" ${extAttrs(link.url)}>${k.short} ↗</a>` : `<span class="ev"></span>`}
-    </div>`;
-  }).join("") + `<div class="empty" hidden>No entries match.</div>`;
-
+  // Render every entry once. Filters change visibility on the same cards.
+  const cards = $("#work-cards");
+  const priority = new Map(FEATURED_ORDER.map((id, i) => [id, i]));
+  const entries = [...ENTRIES].sort((a, b) =>
+    (priority.get(a.id) ?? FEATURED_ORDER.length) - (priority.get(b.id) ?? FEATURED_ORDER.length));
+  cards.innerHTML = entries.map((e, i) => cardHTML(e, i, false, true)).join("");
+  const rendered = [...cards.querySelectorAll("[data-entry-id]")];
+  const searchText = new Map(entries.map((e) => [e.id,
+    [e.title, e.org, e.role, e.summary, e.status, CATEGORIES[e.category], ...(e.tech || [])].join(" ").toLowerCase()]));
+  const byId = new Map(entries.map((e) => [e.id, e]));
+  const hashCategories = { index: "all", featured: "featured", experience: "experience", research: "research", projects: "project", datasci: "datasci", awards: "award" };
+  const categoryHashes = Object.fromEntries(Object.entries(hashCategories).map(([hash, category]) => [category, hash]));
   let cat = "all", q = "";
   const filters = $("#idx-filters");
-  filters.innerHTML = [["all", "All"], ...Object.entries(CATEGORIES)]
-    .map(([k, v]) => `<button data-k="${k}" class="${k === "all" ? "on" : ""}">${esc(v)}</button>`).join("");
+  filters.innerHTML = [["all", "All"], ["featured", "Featured"], ...Object.entries(CATEGORIES)]
+    .map(([k, v]) => `<button type="button" data-k="${k}" aria-controls="work-cards" aria-pressed="${k === "all"}">${esc(v)}</button>`).join("");
+
   function apply() {
-    let n = 0;
-    rows.querySelectorAll(".row").forEach((r) => {
-      const ok = (cat === "all" || r.dataset.cat.split(" ").includes(cat)) && (!q || r.dataset.hay.includes(q));
-      r.classList.toggle("hide", !ok);
-      if (ok) n++;
+    let count = 0;
+    rendered.forEach((card) => {
+      const e = byId.get(card.dataset.entryId);
+      const categoryMatch = cat === "all" || (cat === "featured" ? priority.has(e.id) : e.category === cat || (e.alsoIn || []).includes(cat));
+      const matches = categoryMatch && (!q || searchText.get(e.id).includes(q));
+      card.hidden = !matches;
+      if (matches) count++;
     });
-    rows.querySelector(".empty").hidden = n > 0;
+    filters.querySelectorAll("button").forEach((button) => {
+      const selected = button.dataset.k === cat;
+      button.classList.toggle("on", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    $("#work-count").textContent = `${count} of ${entries.length} entries`;
+    $("#work-empty").hidden = count > 0;
   }
-  filters.addEventListener("click", (ev) => {
-    const b = ev.target.closest("button");
-    if (!b) return;
-    cat = b.dataset.k;
-    filters.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+
+  filters.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-k]");
+    if (!button) return;
+    cat = button.dataset.k;
+    history.replaceState(null, "", `#${categoryHashes[cat]}`);
     apply();
   });
-  $("#idx-search").addEventListener("input", (ev) => { q = ev.target.value.trim().toLowerCase(); apply(); });
+  $("#idx-search").addEventListener("input", (event) => {
+    q = event.target.value.trim().toLowerCase();
+    apply();
+  });
+
+  // Existing category links open the matching filter in the single list.
+  function readHash() {
+    const hash = location.hash.slice(1);
+    if (!Object.hasOwn(hashCategories, hash)) return;
+    cat = hashCategories[hash];
+    q = "";
+    $("#idx-search").value = "";
+    apply();
+    requestAnimationFrame(() => $("#index").scrollIntoView({ block: "start" }));
+  }
+  apply();
+  readHash();
+  window.addEventListener("hashchange", readHash);
 
   // skills
   $("#skills-grid").innerHTML = SKILLS.map((s) => `<div class="reveal"><dt>${esc(s.area)}</dt><dd>${s.items.map(esc).join(", ")}</dd></div>`).join("");

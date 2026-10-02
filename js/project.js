@@ -16,7 +16,7 @@
   const evidence = (e.evidence || []).length
     ? `<ul class="evlist">${e.evidence.map((x) => `<li><span class="k ${(KIND[x.kind] || {}).cls || ""}">${esc({ code: "code", pr: "pr", live: "live", doc: "doc", paper: "pdf", note: "note" }[x.kind] || "")}</span>
         ${x.url ? `<a href="${x.url}" ${extAttrs(x.url)}>${esc(x.label)}</a>` : `<span>${esc(x.label)}</span>`}</li>`).join("")}</ul>`
-    : `<p class="none">Nothing public to link yet. Email me and I can share more.</p>`;
+    : `<p class="none">I don't have a public link for this yet. You can email me for more details.</p>`;
 
   // The main evidence links also sit in the header as buttons, so they are hard to miss.
   const seen = new Set();
@@ -55,7 +55,7 @@
         ${gallery}
         ${e.shots && e.shots.length ? `<div class="shots reveal">${e.shots.map((s) => `<img src="${s}" alt="${esc(e.title)} screenshot" loading="lazy">`).join("")}</div>` : ""}
         ${e.demo ? `<div class="reveal" id="demo-slot"></div>` : ""}
-        ${e.glance ? `<div class="card block glance reveal"><h2>At a glance</h2><p>${esc(e.glance.text)}</p>
+        ${e.glance ? `<div class="card block glance reveal"><h2>Results</h2><p>${esc(e.glance.text)}</p>
           <div class="bars">${e.glance.bars.map((b) => `<div class="bar"><span>${esc(b.label)}</span><i><u style="width:${b.value}%"></u></i><b>${b.value.toFixed(1)}%</b></div>`).join("")}</div>
           <p class="demo-note">${esc(e.glance.note)}</p></div>` : ""}
         ${block("The problem", para(e.problem))}
@@ -63,7 +63,7 @@
         ${e.deliverables ? block("What I built", `<div class="deliv">${e.deliverables.map((d) => `<div><b>${esc(d.name)}</b>${esc(d.text)}</div>`).join("")}</div>`) : ""}
       </div>
       <aside class="side">
-        <div class="card reveal"><h4>Evidence & links</h4>${evidence}</div>
+        <div class="card reveal"><h4>Links</h4>${evidence}</div>
         ${e.tech && e.tech.length ? `<div class="card reveal"><h4>Technologies</h4>${stack(e.tech)}</div>` : ""}
         ${others.length ? `<div class="card reveal"><h4>More in ${esc(CATEGORIES[e.category])}</h4><ul class="evlist">${others.map((o) => `<li><a href="${entryDestination(o)}" ${extAttrs(entryDestination(o))}>${esc(o.title)}</a></li>`).join("")}</ul></div>` : ""}
       </aside>

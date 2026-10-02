@@ -6,12 +6,12 @@ window.mountGripper = function (el) {
   el.innerHTML = `
     <div class="demo">
       <div class="demo-head">
-        <div><div class="fig">FIG. 02 / Adaptive grasping research</div><h3>Detecting slip before you can see it</h3>
-        <p>My research question: can cheap force and vibration sensors catch a slipping object early enough for the gripper to recover? This loop shows the idea.</p></div>
+        <div><div class="fig">FIG. 02 / Adaptive grasping research</div><h3>Testing slip detection</h3>
+        <p>I am studying whether inexpensive force and vibration sensors can detect slip early enough for a gripper to recover. This animation shows the planned control loop.</p></div>
       </div>
       <canvas height="300"></canvas>
       <div class="log" data-log>&nbsp;</div>
-      <p class="demo-note">Illustration of the experiment design. The signals are synthetic, not measurements from my apparatus.</p>
+      <p class="demo-note">This animation illustrates the experiment design using synthetic signals. It does not show measurements from my apparatus.</p>
     </div>`;
   const canvas = el.querySelector("canvas"), ctx = canvas.getContext("2d"), log = el.querySelector("[data-log]");
   const CYCLE = 10, T_GRIP = 1, T_SLIP = 4, T_DETECT = 4.22, T_HOLD = 4.7, T_RELEASE = 8.6, WINDOW = 6;

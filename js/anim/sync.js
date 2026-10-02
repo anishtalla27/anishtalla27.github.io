@@ -12,8 +12,8 @@ window.mountSync = function (el) {
   el.innerHTML = `
     <div class="demo">
       <div class="demo-head">
-        <div><div class="fig">FIG. 03 / TrackMyShuttle</div><h3>Keeping two databases honest</h3>
-        <p>The hub writes to PostgreSQL, but the business also lives in Airtable. A transactional outbox queues changes for delivery to Airtable. Retries handle API failures, and idempotency checks prevent duplicate application.</p></div>
+        <div><div class="fig">FIG. 03 / TrackMyShuttle</div><h3>Syncing PostgreSQL and Airtable</h3>
+        <p>The Hub saves data in PostgreSQL, and staff also use Airtable. A transactional outbox queues changes for Airtable. The worker retries failed API requests, and idempotency checks stop it from applying the same change twice.</p></div>
       </div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Animated diagram of a transactional outbox syncing PostgreSQL to Airtable">
         ${wire(N.app, N.pg)}${wire(N.pg, N.wk)}${wire(N.wk, N.at)}

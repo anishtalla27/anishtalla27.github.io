@@ -50,7 +50,7 @@ window.mountFretboard = function (el) {
     <div class="demo">
       <div class="demo-head">
         <div><div class="fig">FIG. 01 / StringMap</div><h3>Choosing where to play each note</h3>
-        <p>Every pitch can be played in several places on the neck. The rings are all the options. The route is what dynamic programming picks, and it changes with what the player cares about.</p></div>
+        <p>A note can have several positions on the guitar neck. The rings show the available positions, and the line shows the route chosen by dynamic programming. Choose a playing preference to see how the route changes.</p></div>
         <div class="seg" role="tablist">${Object.entries(PROFILES).map(([k, p], i) => `<button data-p="${k}" class="${i ? "" : "on"}">${p.label}</button>`).join("")}</div>
       </div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Guitar fretboard showing the chosen fingering route">
@@ -69,7 +69,7 @@ window.mountFretboard = function (el) {
         <span>Frets used <b data-r="span">0</b></span>
         <button class="linkbtn" data-replay>Replay</button>
       </div>
-      <p class="demo-note">A simplified cost model: finger movement, hand shifts, string changes, and open strings. The app's engine also scores stretch and supports locked positions. Complexity is O(notes × candidates²).</p>
+      <p class="demo-note">This demo scores finger movement, hand shifts, string changes, and open strings. The app's engine also scores stretch and supports locked positions. Complexity is O(notes × candidates²).</p>
     </div>`;
 
   const gC = el.querySelector("[data-cands]"), gP = el.querySelector("[data-path]"), route = el.querySelector("[data-route]");

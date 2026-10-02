@@ -11,7 +11,7 @@ const KIND = {
   code: { card: "code on GitHub", short: "code", cls: "k-code" },
   pr: { card: "pull requests on GitHub", short: "pull requests", cls: "k-pr" },
   live: { card: "live site", short: "live site", cls: "k-live" },
-  doc: { card: "view evidence", short: "evidence", cls: "k-doc" },
+  doc: { card: "view document", short: "document", cls: "k-doc" },
   paper: { card: "paper (PDF)", short: "paper", cls: "k-paper" },
 };
 const extAttrs = (url) => (/^https?:|\.pdf$/.test(url) ? 'target="_blank" rel="noopener"' : "");
@@ -49,7 +49,7 @@ function cardHTML(e, i, big, compact = false) {
   const k = link && KIND[link.kind];
   const more = hasMoreContent(e);
   return `
-  <article class="card reveal ${big ? "big" : ""} ${compact ? "compact" : ""}" style="--d:${(i % 3) * 70}ms">
+  <article data-entry-id="${esc(e.id)}" class="card reveal ${big ? "big" : ""} ${compact ? "compact" : ""}" style="--d:${(i % 3) * 70}ms">
     ${window.coverFor ? coverFor(e) : ""}
     ${compact ? '<div class="card-copy">' : ""}
     <h3>${esc(e.title)}</h3>
