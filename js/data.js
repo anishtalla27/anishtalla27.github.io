@@ -9,7 +9,7 @@ const PROFILE = {
   name: "Anish Talla",
   tagline: "I'm a high school engineering student. I build software and study robotics.",
   intro:
-    "I'm interested in how software works with hardware, especially in robotics and AI. I also teach programming and data science.",
+    "I build operations software at TrackMyShuttle using TypeScript and PostgreSQL. In my research, I compare rule-based and learned methods for robotic grasp prediction. I'm also building a gripper that uses force and vibration sensors to detect slipping objects. I contribute to Dr. David Kane's open-source data science curriculum and lead his teaching fellows. Outside that work, I mentor young business owners at LittleCEOs and play classical and jazz guitar.",
   school: "Lightridge High School and the Academy of Engineering & Technology (Academies of Loudoun), Class of 2027",
   github: GH,
   email: "anish.talla99@gmail.com",
