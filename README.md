@@ -26,8 +26,8 @@ Project entries, skills, and academics are generated from `js/data.js`. The home
 - Screenshots: drop images in `assets/shots/` and list them in `shots`. The first one becomes the card image and all of them appear on the project page.
 - Resume: save a PDF as `assets/resume.pdf`. The Resume button appears on its own once the file exists.
 - Cards only show Read more when the detail page has additional content or multiple evidence links. Simple entries link directly to their evidence when available.
-- The homepage renders each entry once in a compact card list. `FEATURED_ORDER` in `js/data.js` sets the first entries and the Featured filter. Category filters and search show or hide those same cards; `alsoIn` makes an entry available under more than one filter without duplicating it.
-- Existing section links such as `#research` and `#projects` open the matching category filter.
+- The homepage shows every entry once as a full card in its primary category section. All entries are visible without filters. `FEATURED_ORDER` in `js/data.js` sets priority within each section; `alsoIn` does not create extra cards.
+- Category links such as `#research` and `#projects` scroll to their sections. `#index` and the old `#featured` link lead to the start of the work.
 - Interactive demos live in `js/anim/` (hero circuit board, fretboard solver, gripper, sync pipeline). Full demos appear on their project pages.
 - Dr. Kane's internship (`kane-ppbds`) and teaching-fellow role (`kane-teaching`) are separate entries with reciprocal links.
 

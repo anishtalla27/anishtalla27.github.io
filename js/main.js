@@ -11,64 +11,20 @@
   contactButtons($("#foot-btns"), true);
   if (window.mountHero) mountHero($("#hero-canvas"));
 
-  // Render every entry once. Filters change visibility on the same cards.
-  const cards = $("#work-cards");
+  // Each entry belongs to one section; secondary categories do not duplicate it.
   const priority = new Map(FEATURED_ORDER.map((id, i) => [id, i]));
-  const entries = [...ENTRIES].sort((a, b) =>
-    (priority.get(a.id) ?? FEATURED_ORDER.length) - (priority.get(b.id) ?? FEATURED_ORDER.length));
-  cards.innerHTML = entries.map((e, i) => cardHTML(e, i, false, true)).join("");
-  const rendered = [...cards.querySelectorAll("[data-entry-id]")];
-  const searchText = new Map(entries.map((e) => [e.id,
-    [e.title, e.org, e.role, e.summary, e.status, CATEGORIES[e.category], ...(e.tech || [])].join(" ").toLowerCase()]));
-  const byId = new Map(entries.map((e) => [e.id, e]));
-  const hashCategories = { index: "all", featured: "featured", experience: "experience", research: "research", projects: "project", datasci: "datasci", awards: "award" };
-  const categoryHashes = Object.fromEntries(Object.entries(hashCategories).map(([hash, category]) => [category, hash]));
-  let cat = "all", q = "";
-  const filters = $("#idx-filters");
-  filters.innerHTML = [["all", "All"], ["featured", "Featured"], ...Object.entries(CATEGORIES)]
-    .map(([k, v]) => `<button type="button" data-k="${k}" aria-controls="work-cards" aria-pressed="${k === "all"}">${esc(v)}</button>`).join("");
-
-  function apply() {
-    let count = 0;
-    rendered.forEach((card) => {
-      const e = byId.get(card.dataset.entryId);
-      const categoryMatch = cat === "all" || (cat === "featured" ? priority.has(e.id) : e.category === cat || (e.alsoIn || []).includes(cat));
-      const matches = categoryMatch && (!q || searchText.get(e.id).includes(q));
-      card.hidden = !matches;
-      if (matches) count++;
-    });
-    filters.querySelectorAll("button").forEach((button) => {
-      const selected = button.dataset.k === cat;
-      button.classList.toggle("on", selected);
-      button.setAttribute("aria-pressed", String(selected));
-    });
-    $("#work-count").textContent = `${count} of ${entries.length} entries`;
-    $("#work-empty").hidden = count > 0;
-  }
-
-  filters.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-k]");
-    if (!button) return;
-    cat = button.dataset.k;
-    history.replaceState(null, "", `#${categoryHashes[cat]}`);
-    apply();
-  });
-  $("#idx-search").addEventListener("input", (event) => {
-    q = event.target.value.trim().toLowerCase();
-    apply();
+  document.querySelectorAll("[data-category]").forEach((grid) => {
+    const entries = ENTRIES.filter((e) => e.category === grid.dataset.category)
+      .sort((a, b) => (priority.get(a.id) ?? FEATURED_ORDER.length) - (priority.get(b.id) ?? FEATURED_ORDER.length));
+    grid.innerHTML = entries.map((e, i) => cardHTML(e, i)).join("");
   });
 
-  // Existing category links open the matching filter in the single list.
+  // Old Featured links lead to the start of the work sections.
   function readHash() {
-    const hash = location.hash.slice(1);
-    if (!Object.hasOwn(hashCategories, hash)) return;
-    cat = hashCategories[hash];
-    q = "";
-    $("#idx-search").value = "";
-    apply();
-    requestAnimationFrame(() => $("#index").scrollIntoView({ block: "start" }));
+    if (location.hash === "#featured") {
+      requestAnimationFrame(() => $("#index").scrollIntoView({ block: "start" }));
+    }
   }
-  apply();
   readHash();
   window.addEventListener("hashchange", readHash);
 
