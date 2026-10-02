@@ -11,22 +11,15 @@
   contactButtons($("#foot-btns"), true);
   if (window.mountHero) mountHero($("#hero-canvas"));
 
-  // Each entry belongs to one section; secondary categories do not duplicate it.
-  const priority = new Map(FEATURED_ORDER.map((id, i) => [id, i]));
+  // Featured entries appear here only; all other entries use their primary category.
+  const byId = new Map(ENTRIES.map((e) => [e.id, e]));
+  const featuredIds = new Set(FEATURED_ORDER);
+  document.querySelector("[data-featured]").innerHTML = FEATURED_ORDER
+    .map((id) => byId.get(id)).filter(Boolean).map((e, i) => cardHTML(e, i)).join("");
   document.querySelectorAll("[data-category]").forEach((grid) => {
-    const entries = ENTRIES.filter((e) => e.category === grid.dataset.category)
-      .sort((a, b) => (priority.get(a.id) ?? FEATURED_ORDER.length) - (priority.get(b.id) ?? FEATURED_ORDER.length));
+    const entries = ENTRIES.filter((e) => e.category === grid.dataset.category && !featuredIds.has(e.id));
     grid.innerHTML = entries.map((e, i) => cardHTML(e, i)).join("");
   });
-
-  // Old Featured links lead to the start of the work sections.
-  function readHash() {
-    if (location.hash === "#featured") {
-      requestAnimationFrame(() => $("#index").scrollIntoView({ block: "start" }));
-    }
-  }
-  readHash();
-  window.addEventListener("hashchange", readHash);
 
   // skills
   $("#skills-grid").innerHTML = SKILLS.map((s) => `<div class="reveal"><dt>${esc(s.area)}</dt><dd>${s.items.map(esc).join(", ")}</dd></div>`).join("");

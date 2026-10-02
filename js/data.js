@@ -35,7 +35,6 @@ const ENTRIES = [
     role: "Software Engineering Intern (paid)",
     dates: "Grades 11 to 12",
     status: "Ongoing",
-    featured: true,
     privateCode: true,
     demo: "sync",
     summary:
@@ -90,7 +89,6 @@ const ENTRIES = [
     role: "Data Science Intern",
     dates: "2025 to 2026",
     status: "Completed",
-    featured: true,
     summary: "I contributed to Dr. David Kane's data science textbook and interactive R curriculum. My merged changes include tests and editor-extension updates for the open-source tutorial tools.",
     problem: "The textbook and its tutorials needed reliable software and lessons that let students investigate real datasets through code.",
     contribution: "I worked with Dr. David Kane on the Preceptor's Primer for Bayesian Data Science, its curriculum, and its R packages. I revised interactive lessons, wrote automated tests, and updated editor tools. The linked pull requests show my contributions to these shared projects.",
@@ -201,7 +199,6 @@ const ENTRIES = [
     role: "Lead developer",
     dates: "2025",
     status: "Shipped",
-    featured: true,
     summary:
       "A web platform where young entrepreneurs (roughly ages 8 to 14) price products, track their business, and get AI coaching.",
     problem: "Kids selling at markets and fairs often have trouble figuring out whether they are making money. I wanted to give them tools that were easier to use than a spreadsheet.",
@@ -244,7 +241,6 @@ const ENTRIES = [
     role: "Creator",
     dates: "2026",
     status: "Shipped",
-    featured: true,
     demo: "fretboard",
     summary:
       "A native iOS guitar-learning app that connects written music, tablature, fretboard positions, and playback. Its fingering engine uses dynamic programming to pick where on the neck to play each note.",
@@ -314,7 +310,6 @@ const ENTRIES = [
     role: "Sole author",
     dates: "2026",
     status: "Accepted",
-    featured: true,
     summary:
       "I compared rule-based vision, deep learning, and GPT-4o on robotic grasp prediction under the same test conditions. I tested them on unseen objects, calculated uncertainty, and examined the errors each method made. The paper was accepted to the Teen Research Track of IEEE ICDM 2026.",
     glance: {
@@ -374,7 +369,6 @@ const ENTRIES = [
     role: "Researcher",
     dates: "2026 to 2027",
     status: "In progress",
-    featured: false,
     demo: "gripper",
     summary:
       "I'm designing a low-cost robotic gripper that uses vision, force sensors, and vibration feedback to detect slipping objects and adjust its grip.",
@@ -515,7 +509,6 @@ const ENTRIES = [
     role: "Creator",
     dates: "2026",
     status: "Shipped",
-    featured: true,
     summary:
       "A fantasy football tool I built for one Sleeper league. It forecasts each player's weekly score with an uncertainty range and selects a legal lineup based on win probability against the opponent. It also ranks waiver pickups by how much they could improve my roster over the rest of the season.",
     problem:
@@ -560,7 +553,6 @@ const ENTRIES = [
     category: "datasci",
     dates: "2026",
     status: "Completed",
-    featured: true,
     summary: "A reproducible Python pipeline for predicting ice-hockey outcomes. It produces team rankings, playoff matchup probabilities, and line disparity estimates.",
     problem: "Predict game outcomes from season data, and check that the predictions are calibrated.",
     contribution: "Team project. I worked on the modeling pipeline and its reproducibility checks.",
@@ -581,7 +573,6 @@ const ENTRIES = [
     category: "award",
     role: "Team PowerPoint Rangers (North America)",
     status: "Completed",
-    featured: false,
     summary: "My team placed first worldwide among 1,300+ teams. We presented our Boeing strategy for 10 minutes and answered questions for 5 minutes.",
     details: [
       "Our recommendations were three initiatives named ClearSky, BlueWing, and SkyFocus.",
@@ -658,7 +649,7 @@ const ENTRIES = [
   },
 ];
 
-const FEATURED_ORDER = ["trackmyshuttle", "kane-ppbds", "launchpad", "grasp-benchmark", "stringmap", "fourth-down", "wharton"];
+const FEATURED_ORDER = ["trackmyshuttle", "kane-ppbds", "adaptive-gripper", "grasp-benchmark"];
 
 const ACADEMICS = [
   { area: "ACT", items: ["35 composite: 36 Math, 36 English, 33 Reading"] },

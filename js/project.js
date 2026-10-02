@@ -39,7 +39,7 @@
 
   root.innerHTML = `
     <div class="phead"><div class="wrap">
-      <a class="back" href="index.html#${e.category === "project" ? "projects" : e.category === "award" ? "awards" : e.category}">← ${esc(CATEGORIES[e.category])}</a>
+      <a class="back" href="index.html#${FEATURED_ORDER.includes(e.id) ? "featured" : e.category === "project" ? "projects" : e.category === "award" ? "awards" : e.category}">← ${FEATURED_ORDER.includes(e.id) ? "Featured work" : esc(CATEGORIES[e.category])}</a>
       <h1>${esc(e.title)}</h1>
       <div class="meta">${metaLine(e)}</div>
       <p class="sum">${esc(e.summary)}</p>
