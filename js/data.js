@@ -83,7 +83,7 @@ const ENTRIES = [
   {
     id: "kane-ppbds",
     cover: "code",
-    title: "Data Science Internship with Dr. David Kane",
+    title: "Software Development Internship with Dr. David Kane",
     category: "experience",
     alsoIn: ["datasci"],
     org: "PPBDS",
@@ -156,7 +156,7 @@ const ENTRIES = [
       { label: "Head Teaching Fellow listing", url: "https://bootcamp.davidkane.info/staff.html", kind: "doc", primary: true },
       { label: "Course repository: PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
       { label: "Course textbook", url: "https://ppbds.github.io/primer/", kind: "doc" },
-      { label: "My separate data science internship", url: "project.html?id=kane-ppbds", kind: "doc" },
+      { label: "My separate software internship", url: "project.html?id=kane-ppbds", kind: "doc" },
     ],
   },
   {
@@ -378,7 +378,7 @@ const ENTRIES = [
     org: "Academy of Engineering & Technology",
     role: "Lead researcher",
     dates: "2026 to 2027",
-    status: "In progress",
+    status: "Ongoing",
     demo: "gripper",
     summary:
       "I built a low-cost 3D-printed gripper that uses force and vibration sensors to tell when an object is slipping and tighten before it falls. After training, overall grasp success rose from 86% to 89%, but on soft objects it fell from 84% to 76%. This year, in Senior Research, I'm building a physical slip-detection model on top of it.",
@@ -392,10 +392,10 @@ const ENTRIES = [
       "I changed the controller to tighten only when a force drop comes with vibration from the piezo, since real slips shake and squished cups don't. The servo's own vibration could also trigger the piezo, so the code ignores it for a short window after each move.",
       "The Arduino's analog-to-digital converter did not settle between force sensors, so each reading carried part of the previous sensor's value. Discarding the first reading after each switch gave clean data but slowed the gripper down.",
       "In 80 soft-object grasps, failures rose from 13 to 19 after training, and four of the extra failures came from one foam cup.",
-      "Next, I plan to compare force-only sensing, vibration-only sensing, and the two combined across three surface materials and three weights, and measure precision, recall, false triggers, recovery success, response time, and damage rate.",
+      "In Senior Research, I'm building a physical slip-detection model on top of this gripper that compares force-only sensing, vibration-only sensing, and the two combined.",
       "The design draws on work by Romano et al., Calandra et al., and Van Wyk and Falco.",
     ],
-    links: [{ label: "Read the design report: slip detection (PDF)", url: "assets/papers/adaptive-gripper.pdf", kind: "paper" }],
+    links: [],
   },
   {
     "id": "near-memory",
@@ -480,7 +480,7 @@ const ENTRIES = [
     cover: "lane",
     title: "MIT Beaver Works: Autonomous Cars",
     category: "research",
-    dates: "Approx. March to May 2024",
+    dates: "Spring 2024",
     status: "Completed",
     summary: "Saturday program coursework on autonomous vehicles using the RACECAR Neo simulator, about 5 to 6 hours per week.",
     tech: ["Python", "Computer vision", "Motion planning", "Control"],
@@ -502,22 +502,6 @@ const ENTRIES = [
   },
 
   // ---------------------------------------------------------------- DATA SCIENCE
-  {
-    id: "tutorial-forks",
-    cover: "code",
-    title: "PPBDS tutorial and curriculum repositories",
-    category: "datasci",
-    status: "Ongoing",
-    summary: "These shared PPBDS packages support interactive R lessons. My internship page links to my contributions, and these repositories contain the full projects.",
-    tech: ["R", "learnr", "Quarto"],
-    details: [],
-    links: [
-      { label: "PPBDS/primer.tutorials", url: "https://github.com/PPBDS/primer.tutorials", kind: "code" },
-      { label: "PPBDS/r4ds.tutorials", url: "https://github.com/PPBDS/r4ds.tutorials", kind: "code" },
-      { label: "PPBDS/vscode.tutorials", url: "https://github.com/PPBDS/vscode.tutorials", kind: "code" },
-      { label: "PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
-    ],
-  },
   {
     id: "fourth-down",
     cover: "fanchart",
@@ -580,6 +564,22 @@ const ENTRIES = [
       "Includes calibration, robustness, and reproducibility checks so every output can be regenerated.",
     ],
     links: [{ label: "Source code", url: GH + "/WhartonDataScience", kind: "code" }, { label: "Official Wharton competition and challenge", url: "https://wsb.wharton.upenn.edu/wharton-data-competition/about/", kind: "live" }],
+  },
+  {
+    id: "tutorial-forks",
+    cover: "code",
+    title: "PPBDS tutorial and curriculum repositories",
+    category: "datasci",
+    status: "Ongoing",
+    summary: "These shared PPBDS packages support interactive R lessons. My internship page links to my contributions, and these repositories contain the full projects.",
+    tech: ["R", "learnr", "Quarto"],
+    details: [],
+    links: [
+      { label: "PPBDS/primer.tutorials", url: "https://github.com/PPBDS/primer.tutorials", kind: "code" },
+      { label: "PPBDS/r4ds.tutorials", url: "https://github.com/PPBDS/r4ds.tutorials", kind: "code" },
+      { label: "PPBDS/vscode.tutorials", url: "https://github.com/PPBDS/vscode.tutorials", kind: "code" },
+      { label: "PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
+    ],
   },
 
   // ---------------------------------------------------------------- AWARDS

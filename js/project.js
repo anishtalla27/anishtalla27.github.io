@@ -16,7 +16,7 @@
   const linkList = (e.links || []).length
     ? `<ul class="evlist">${e.links.map((x) => `<li><span class="k ${(KIND[x.kind] || {}).cls || ""}">${esc({ code: "code", pr: "pr", live: "live", doc: "doc", paper: "pdf", note: "note" }[x.kind] || "")}</span>
         ${x.url ? `<a href="${x.url}" ${extAttrs(x.url)}>${esc(x.label)}</a>` : `<span>${esc(x.label)}</span>`}</li>`).join("")}</ul>`
-    : `<p class="none">I don't have a public link for this yet. You can email me for more details.</p>`;
+    : "";
 
   // The main links also sit in the header as buttons, so they are hard to miss.
   const seen = new Set();
@@ -63,7 +63,7 @@
         ${e.deliverables ? block("What I built", `<div class="deliv">${e.deliverables.map((d) => `<div><b>${esc(d.name)}</b>${esc(d.text)}</div>`).join("")}</div>`) : ""}
       </div>
       <aside class="side">
-        <div class="card reveal"><h4>Links</h4>${linkList}</div>
+        ${linkList ? `<div class="card reveal"><h4>Links</h4>${linkList}</div>` : ""}
         ${e.tech && e.tech.length ? `<div class="card reveal"><h4>Technologies</h4>${stack(e.tech)}</div>` : ""}
         ${others.length ? `<div class="card reveal"><h4>More in ${esc(CATEGORIES[e.category])}</h4><ul class="evlist">${others.map((o) => `<li><a href="${entryDestination(o)}" ${extAttrs(entryDestination(o))}>${esc(o.title)}</a></li>`).join("")}</ul></div>` : ""}
       </aside>
