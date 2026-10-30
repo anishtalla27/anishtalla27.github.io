@@ -7,7 +7,7 @@ window.mountGripper = function (el) {
     <div class="demo">
       <div class="demo-head">
         <div><div class="fig">FIG. 02 / Adaptive grasping research</div><h3>Testing slip detection</h3>
-        <p>I am studying whether inexpensive force and vibration sensors can detect slip early enough for a gripper to recover. This animation shows the planned control loop.</p></div>
+        <p>I am studying whether inexpensive force and vibration sensors can detect slip early enough for a gripper to recover. This animation shows the control loop: tighten only when a force drop comes with vibration.</p></div>
       </div>
       <canvas height="300"></canvas>
       <div class="log" data-log>&nbsp;</div>
