@@ -26,7 +26,7 @@ function metaLine(e) {
 const stack = (arr, n) => (arr && arr.length ? `<p class="stack">${arr.slice(0, n || arr.length).map(esc).join(" · ")}${n && arr.length > n ? " · …" : ""}</p>` : "");
 
 function firstLink(e) {
-  return (e.evidence || []).find((x) => x.url && !x.url.startsWith("project.html"));
+  return (e.links || []).find((x) => x.url && !x.url.startsWith("project.html"));
 }
 
 // Only offer a detail page when it contains material beyond the card summary.
@@ -34,7 +34,7 @@ function hasMoreContent(e) {
   return Boolean(e.problem || e.contribution || e.demo || e.glance ||
     (e.details || []).length || (e.outcomes || []).length ||
     (e.deliverables || []).length || (e.shots || []).length ||
-    (e.evidence || []).filter((x) => x.url).length > 1);
+    (e.links || []).filter((x) => x.url).length > 1);
 }
 
 function entryDestination(e) {
@@ -43,7 +43,7 @@ function entryDestination(e) {
   return link ? link.url : null;
 }
 
-// The whole card opens the project page (stretched "Read more" link); the evidence note is its own link.
+// The whole card opens the project page (stretched "Read more" link); the link note is its own link.
 function cardHTML(e, i, big, compact = false) {
   const link = firstLink(e);
   const k = link && KIND[link.kind];

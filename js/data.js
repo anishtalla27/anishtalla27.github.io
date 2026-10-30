@@ -1,7 +1,7 @@
 // All site content lives here. Edit this file to add or change entries.
 // category: experience | project | research | datasci | award
 // status:   Shipped | In progress | Prototype | Concept | Submitted | Accepted | Private code | Completed | Ongoing
-// evidence kind: code | pr | live | doc | paper | note
+// link kind: code | pr | live | doc | paper | note
 // cover: animated card art from js/covers.js. shots: ["assets/shots/x.png"] replaces it with real screenshots.
 const GH = "https://github.com/anishtalla27";
 
@@ -74,7 +74,7 @@ const ENTRIES = [
       { src: "assets/shots/trackmyshuttle/chooser.jpg", caption: "Signing in to TMS Hub opens a workspace chooser, with one hub per team." },
       { src: "assets/shots/trackmyshuttle/fedex-automation.jpg", caption: "The FedEx label automation in Make. An Airtable webhook creates the shipment, saves tracking, and files the label in Google Drive. A failed label is saved for review instead of retried.", wide: true },
     ],
-    evidence: [
+    links: [
       { label: "TMS Hub", url: "https://hub.trackmyshuttle.com/", kind: "live" },
       { label: "Official TrackMyShuttle website", url: "https://trackmyshuttle.com/", kind: "live" },
       { label: "Source code is private (employer-owned). See the architecture notes and animation on this page.", kind: "note" },
@@ -104,11 +104,11 @@ const ENTRIES = [
       "I reviewed changes and worked with other contributors in the shared PPBDS GitHub repositories.",
     ],
     outcomes: ["Three co-developed R packages with 85,000+ combined downloads.", "Positron extension with 837 installs; Docker image with 41 releases.", "Acknowledged as a contributor in the Preceptor's Primer for Bayesian Data Science."],
-    galleryTitle: "Evidence",
+    galleryTitle: "Contributions",
     gallery: [
       { src: "assets/shots/kane/pr-75.jpg", caption: "Pull request #75 to tutorial.helpers, merged by Dr. Kane in August 2025. It adds test cases for write_answers().", wide: true },
     ],
-    evidence: [
+    links: [
       { label: "Read the textbook", url: "https://ppbds.github.io/primer/", kind: "doc", primary: true },
       { label: "My merged contributions", url: "https://github.com/PPBDS/tutorial.helpers/pulls?q=is%3Apr+is%3Amerged+author%3Aanishtalla27", kind: "pr", primary: true },
       { label: "Textbook acknowledgments", url: "https://ppbds.github.io/primer/preamble.html#acknowledgements", kind: "doc" },
@@ -151,7 +151,7 @@ const ENTRIES = [
       { src: "assets/shots/kane/fellows-2025.jpg", caption: "The summer 2025 course team with Dr. Kane on Zoom. I am on the right in the middle row. The photo is from the textbook's acknowledgments.", wide: true },
       { src: "assets/shots/kane/course-home.jpg", caption: "The course website. The course runs for eight weeks, mostly in summer, and is free." },
     ],
-    evidence: [
+    links: [
       { label: "Visit the course website", url: "https://bootcamp.davidkane.info/", kind: "live", primary: true },
       { label: "Head Teaching Fellow listing", url: "https://bootcamp.davidkane.info/staff.html", kind: "doc", primary: true },
       { label: "Course repository: PPBDS/bootcamp", url: "https://github.com/PPBDS/bootcamp", kind: "code" },
@@ -180,7 +180,7 @@ const ENTRIES = [
       "Working with kids who run small businesses helped me design LaunchPad's Pricing Lab and feedback tools.",
     ],
     outcomes: ["Mentored 10+ businesses one on one.", "LaunchPad serves 40+ young entrepreneurs."],
-    evidence: [{ label: "LaunchPad project page", url: "project.html?id=launchpad", kind: "doc" }, { label: "Official Little CEOs Foundation website", url: "https://littleceos.org/", kind: "live" }],
+    links: [{ label: "LaunchPad project page", url: "project.html?id=launchpad", kind: "doc" }, { label: "Official Little CEOs Foundation website", url: "https://littleceos.org/", kind: "live" }],
   },
   {
     id: "coderschool",
@@ -195,7 +195,7 @@ const ENTRIES = [
     contribution: "Planned and taught weekly sessions, adjusting projects to each student's level.",
     tech: ["Python", "Java", "JavaScript", "HTML", "Scratch", "Unity", "Arduino"],
     details: ["In these small classes, every student built their own project instead of copying one from the board."],
-    evidence: [{ label: "Official Ashburn school website", url: "https://www.thecoderschool.com/locations/ashburn/", kind: "live" }],
+    links: [{ label: "Official Ashburn school website", url: "https://www.thecoderschool.com/locations/ashburn/", kind: "live" }],
   },
 
   // ---------------------------------------------------------------- PROJECTS
@@ -237,7 +237,7 @@ const ENTRIES = [
       { src: "assets/shots/launchpad/business-numbers.jpg", caption: "The report's numbers: monthly money flow, the cost of one item, and the full financial breakdown.", wide: true },
       { src: "assets/shots/launchpad/inventory.jpg", caption: "Inventory in the business tracker, with stock levels and the value of what is on hand.", wide: true },
     ],
-    evidence: [
+    links: [
       { label: "Live site", url: "https://www.launchpad143.com/", kind: "live" },
       { label: "Source code", url: GH + "/LaunchPad", kind: "code" },
     ],
@@ -289,7 +289,7 @@ const ENTRIES = [
       { src: "assets/shots/stringmap/songbook-melody.jpg", caption: "A Songbook melody, with the staff, tab, and fretboard following the same note." },
       { src: "assets/shots/stringmap/songbook-chords.jpg", caption: "The same tune as chords, with a fingering for each shape." },
     ],
-    evidence: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
+    links: [{ label: "View on the App Store", url: "https://apps.apple.com/us/app/stringmap/id6809277270", kind: "live" }, { label: "Source code", url: GH + "/StringMap", kind: "code" }],
   },
   {
     id: "meeting-transcriber",
@@ -306,7 +306,7 @@ const ENTRIES = [
       "The app has a searchable library, editable transcript segments, notes, and bookmarks. It supports playback from a timestamp and exports to Markdown, plain text, and SRT.",
       "Much of the work went into recovering usable audio after crashes, handling empty microphone tracks, and saving partial transcripts. I also worked on reducing repeated text in transcriptions.",
     ],
-    evidence: [{ label: "Source code", url: GH + "/MeetingTranscriber", kind: "code" }],
+    links: [{ label: "Source code", url: GH + "/MeetingTranscriber", kind: "code" }],
   },
 
   // ---------------------------------------------------------------- RESEARCH
@@ -365,7 +365,7 @@ const ENTRIES = [
       { src: "assets/shots/grasp/three-systems.jpg", caption: "All three systems on one test image. Green is the labeled grasps, red the rules, blue the trained network, and orange GPT-4o's five calls." },
       { src: "assets/shots/grasp/marked-grasps.jpg", caption: "The follow-up experiment. GPT-4o picked mark 6, along the object, on all five calls. Mark 10, across the middle, passes the test." },
     ],
-    evidence: [
+    links: [
       { label: "Read the paper (PDF)", url: "assets/papers/grasp-benchmark.pdf", kind: "paper" },
       { label: "Code and data", url: GH + "/Vision-Based-Grasping", kind: "code" },
     ],
@@ -395,7 +395,7 @@ const ENTRIES = [
       "Next, I plan to compare force-only sensing, vibration-only sensing, and the two combined across three surface materials and three weights, and measure precision, recall, false triggers, recovery success, response time, and damage rate.",
       "The design draws on work by Romano et al., Calandra et al., and Van Wyk and Falco.",
     ],
-    evidence: [{ label: "Read the design report: slip detection (PDF)", url: "assets/papers/adaptive-gripper.pdf", kind: "paper" }],
+    links: [{ label: "Read the design report: slip detection (PDF)", url: "assets/papers/adaptive-gripper.pdf", kind: "paper" }],
   },
   {
     "id": "near-memory",
@@ -443,7 +443,7 @@ const ENTRIES = [
       { "src": "assets/shots/near-memory/decode-vs-bytes.png", "caption": "Decode speed against weight bytes read per token. The dashed line is measured bandwidth divided by bytes, with no fitted parameters." },
       { "src": "assets/shots/near-memory/pim-gain.png", "caption": "Projected processing-in-memory speedup for Qwen2.5-3B. At r = 4, a 16-bit part gains about 3.5 times over the 16-bit host but only about 1.2 times over the 4-bit host." },
     ],
-    "evidence": [
+    "links": [
       {
         "label": "Read the paper (PDF)",
         "url": "assets/papers/near-memory.pdf",
@@ -473,7 +473,7 @@ const ENTRIES = [
       "Fused gyro and wheel-encoder data so the robot tracked its own position on the field, and tuned PID for precise turns and drives.",
       "In the ninth-grade Over Under season, our autonomous routine scored its first triball, then drifted off course and got stuck. Before the next competition I spent hours on small fixes: extra standoffs to stiffen the intake, gear-ratio changes, and a two-degree change to a turning angle in the code.",
     ],
-    evidence: [],
+    links: [],
   },
   {
     id: "beaverworks",
@@ -485,7 +485,7 @@ const ENTRIES = [
     summary: "Saturday program coursework on autonomous vehicles using the RACECAR Neo simulator, about 5 to 6 hours per week.",
     tech: ["Python", "Computer vision", "Motion planning", "Control"],
     details: ["Topics: navigation, control, computer vision, motion planning, and probabilistic reasoning."],
-    evidence: [{ label: "Official MIT RACECAR program", url: "https://racecar.mit.edu/", kind: "live" }],
+    links: [{ label: "Official MIT RACECAR program", url: "https://racecar.mit.edu/", kind: "live" }],
   },
   {
     id: "weather-balloon",
@@ -498,7 +498,7 @@ const ENTRIES = [
     summary: "I was one of four students selected to supervise our AET engineering class's annual high-altitude balloon launch, overseeing 48 students. The balloon reached 16+ km and logged 18,000 sensor readings.",
     tech: ["Arduino", "GPS", "CO₂ sensors", "Data analysis"],
     details: ["Coordinated 10+ Arduino sensor payloads and integrated GPS and CO₂ tracking.", "Led the post-flight analysis of the 18,000 sensor readings."],
-    evidence: [],
+    links: [],
   },
 
   // ---------------------------------------------------------------- DATA SCIENCE
@@ -511,7 +511,7 @@ const ENTRIES = [
     summary: "These shared PPBDS packages support interactive R lessons. My internship page links to my contributions, and these repositories contain the full projects.",
     tech: ["R", "learnr", "Quarto"],
     details: [],
-    evidence: [
+    links: [
       { label: "PPBDS/primer.tutorials", url: "https://github.com/PPBDS/primer.tutorials", kind: "code" },
       { label: "PPBDS/r4ds.tutorials", url: "https://github.com/PPBDS/r4ds.tutorials", kind: "code" },
       { label: "PPBDS/vscode.tutorials", url: "https://github.com/PPBDS/vscode.tutorials", kind: "code" },
@@ -559,7 +559,7 @@ const ENTRIES = [
       "The tool runs three times a week during the season and saves every forecast before kickoff so I can check its performance later.",
       "The report explains the limits: rest-of-season values and FAAB bids are heuristics, win probabilities still need validation against saved forecasts, and I checked the 2025 holdout twice rather than once.",
     ],
-    evidence: [
+    links: [
       { label: "Source code", url: GH + "/FantasyFootballModel", kind: "code", primary: true },
       { label: "Backtest report, with ablations and limitations", url: GH + "/FantasyFootballModel/blob/main/reports/backtest.md", kind: "doc", primary: true },
     ],
@@ -579,7 +579,7 @@ const ENTRIES = [
       "Win probabilities from logistic regression feed rankings and matchup predictions.",
       "Includes calibration, robustness, and reproducibility checks so every output can be regenerated.",
     ],
-    evidence: [{ label: "Source code", url: GH + "/WhartonDataScience", kind: "code" }, { label: "Official Wharton competition and challenge", url: "https://wsb.wharton.upenn.edu/wharton-data-competition/about/", kind: "live" }],
+    links: [{ label: "Source code", url: GH + "/WhartonDataScience", kind: "code" }, { label: "Official Wharton competition and challenge", url: "https://wsb.wharton.upenn.edu/wharton-data-competition/about/", kind: "live" }],
   },
 
   // ---------------------------------------------------------------- AWARDS
@@ -600,12 +600,12 @@ const ENTRIES = [
       "We won a $1,500 grand prize and work experience with EY.",
     ],
     tech: ["Strategy", "Financial analysis", "Presenting"],
-    galleryTitle: "Evidence",
+    galleryTitle: "Results",
     gallery: [
       { src: "assets/shots/case/winners.jpg", caption: "The official 2025 results page, with our team in first place." },
     ],
-    evidence: [
-      { label: "2025 winners: my team and name", url: "https://www.casecomp.org/winning-teams-2025", kind: "doc", primary: true },
+    links: [
+      { label: "2025 winning teams", url: "https://www.casecomp.org/winning-teams-2025", kind: "doc", primary: true },
       { label: "Our winning case solution", url: "https://www.casecomp.org/top-case-solutions-2025", kind: "doc", primary: true },
       { label: "Official HCGCC website", url: "https://www.casecomp.org/", kind: "live" },
     ],
@@ -618,7 +618,7 @@ const ENTRIES = [
     summary: "I earned work experience with EY through the Global Case Competition. The consulting and professional development work included an autonomous-driving strategy exercise for Rivian, presented to EY partners.",
     tech: ["Consulting", "NPV analysis"],
     details: [],
-    evidence: [{ label: "Related competition: 2025 winners", url: "https://www.casecomp.org/winning-teams-2025", kind: "doc" }],
+    links: [{ label: "Related competition: 2025 winners", url: "https://www.casecomp.org/winning-teams-2025", kind: "doc" }],
   },
   {
     id: "cyber-cup",
@@ -629,7 +629,7 @@ const ENTRIES = [
     summary: "My six-person team placed first in the 9th/10th grade division and had the fourth-highest score overall in Virginia at the 2025 state finals.",
     tech: ["Cybersecurity", "Capture the flag"],
     details: [],
-    evidence: [
+    links: [
       { label: "LCPS news article naming the team", url: "https://www.lcps.org/article/2126323", kind: "doc", primary: true },
       { label: "Official Virginia HS Cyber Cup website", url: "https://sites.google.com/vt.edu/commonwealth-cyber-cup/home", kind: "live" },
     ],
@@ -643,7 +643,7 @@ const ENTRIES = [
     summary: "In tenth grade I placed second at the Virginia State Leadership Conference, then qualified for nationals and competed there.",
     tech: [],
     details: [],
-    evidence: [{ label: "Official Virginia FBLA website", url: "https://www.vafbla.org/", kind: "live" }],
+    links: [{ label: "Official Virginia FBLA website", url: "https://www.vafbla.org/", kind: "live" }],
   },
   {
     id: "tsa-software",
@@ -654,7 +654,7 @@ const ENTRIES = [
     summary: "Our team placed fourth in Software Development at the 2026 Virginia TSA state conference. That qualified us for nationals, but we did not attend.",
     tech: ["Swift", "SwiftUI", "Speech", "Claude API"],
     details: ["Our entry was OutfitAssist, a voice-first iOS app that helps blind and low-vision users choose outfits from a photo and a spoken request."],
-    evidence: [
+    links: [
       { label: "2026 Virginia TSA state results", url: "https://tsavirginia.org/wp-content/uploads/2026/05/2026-Technosphere-TSA-Awards.html", kind: "doc", primary: true },
       { label: "Source code: OutfitAssist", url: GH + "/OutfitAssist", kind: "code" },
     ],
@@ -667,7 +667,7 @@ const ENTRIES = [
     summary: "Selected by audition in classical guitar in ninth grade. An instructor there taught me to stop counting and swing the flamenco sections, which changed how my right hand plays.",
     tech: ["Classical guitar"],
     details: [],
-    evidence: [{ label: "Official PAVAN program website", url: "https://pavangsa.org/", kind: "live" }],
+    links: [{ label: "Official PAVAN program website", url: "https://pavangsa.org/", kind: "live" }],
   },
 ];
 

@@ -312,13 +312,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .cv-dash { animation: cv-dash 0.9s linear infinite; }
 @keyframes cv-dash { to { stroke-dashoffset: 22; } }
 
-/* ---------- stretched card link + real evidence links ---------- */
+/* ---------- stretched card link + project links ---------- */
 .card .go::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
 .card .go:hover { text-decoration: none; }
 .card a.ext { position: relative; z-index: 1; }
 .card a.ext:hover, .row a.ev:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* ---------- text colors that group by state and by kind of evidence ---------- */
+/* ---------- text colors that group by state and by kind of link ---------- */
 .c-done { color: #0c7a56 !important; }
 .c-active { color: #1d5fe0 !important; }
 .c-early { color: #a5640c !important; }
